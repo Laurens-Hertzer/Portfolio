@@ -1,0 +1,173 @@
+/* Globale Farbvariablen */
+:root {
+    --black: #02010a;
+    --prussian-blue: #04052e;
+    --deep-twilight: #140152;
+    --navy: #22007c;
+}
+
+/* Globaler Body/Hintergrund - KEIN WEIß MEHR */
+body {
+    background-color: var(--black) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Alle weißen Container entfernen */
+.bg-white {
+    background-color: var(--prussian-blue) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.bg-light {
+    background-color: var(--prussian-blue) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Text-Farben anpassen */
+.text-black {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* App.jsx - Navbar */
+.navbar.bg-dark {
+    background-color: var(--black) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* Alle Komponenten - Header/Banner Bereiche */
+.container-fluid.bg-dark {
+    background-color: var(--prussian-blue) !important;
+}
+
+/* Index.jsx, PersProjekte.jsx, SchulProjekte.jsx - Projekt-Karten */
+.bg-secondary {
+    background-color: var(--deep-twilight) !important;
+}
+
+/* Projekt.jsx - Technologie Badges */
+.badge.bg-primary {
+    background-color: var(--navy) !important;
+}
+
+/* Projekt.jsx - Content-Bereiche (waren weiß) */
+.container .bg-white {
+    background-color: var(--deep-twilight) !important;
+}
+
+/* Projekt.jsx - Buttons */
+.btn-dark {
+    background-color: var(--black) !important;
+    border-color: var(--black) !important;
+}
+
+.btn-primary {
+    background-color: var(--navy) !important;
+    border-color: var(--navy) !important;
+}
+
+.btn-secondary {
+    background-color: var(--deep-twilight) !important;
+    border-color: var(--deep-twilight) !important;
+}
+
+.btn-light {
+    background-color: var(--navy) !important;
+    border-color: var(--navy) !important;
+    color: white !important;
+}
+
+/* Hover-Effekte für Buttons */
+.btn-dark:hover {
+    background-color: var(--prussian-blue) !important;
+    border-color: var(--prussian-blue) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--deep-twilight) !important;
+    border-color: var(--deep-twilight) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--navy) !important;
+    border-color: var(--navy) !important;
+}
+
+.btn-light:hover {
+    background-color: var(--deep-twilight) !important;
+    border-color: var(--deep-twilight) !important;
+}
+
+/* Carousel Controls - Dunklere Hintergründe */
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(2, 1, 10, 0.4) !important;
+}
+
+/* List Groups - keine weißen Hintergründe */
+.list-group-item {
+    background-color: var(--prussian-blue) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-color: var(--deep-twilight) !important;
+}
+
+/* Alerts */
+.alert-info {
+    background-color: var(--navy) !important;
+    border-color: var(--deep-twilight) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Cards und Rounded Shadows */
+.rounded.shadow {
+    background-color: var(--deep-twilight) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Projekt.jsx - min-vh-100 bg-light */
+.min-vh-100.bg-light {
+    background-color: var(--black) !important;
+}
+
+/* Footer */
+footer {
+    background-color: var(--prussian-blue) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+footer .nav-link.text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+footer .nav-link.text-muted:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+footer .text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+footer .border-bottom {
+    border-color: var(--deep-twilight) !important;
+}
+
+/* Ausbildung.jsx - Paragraphen */
+p {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Container */
+.container, .container-fluid {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Text Light für bessere Lesbarkeit auf dunklem Hintergrund */
+.text-light {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
