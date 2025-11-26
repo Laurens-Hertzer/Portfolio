@@ -14,10 +14,10 @@ export default function Footer() {
                             <Link to="/ausbildung" className="nav-link px-2 text-muted">Ausbildung</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/persProjekte" className="nav-link px-2 text-muted">persönliche Projekte</Link>
+                            <Link to="/persProjekte" className="nav-link px-2 text-muted">Persönliche Projekte</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/schulProjekte" className="nav-link px-2 text-muted">Schulprojekte</Link>
+                            <Link to="/schulProjekte" className="nav-link px-2 text-muted">Schulische Projekte</Link>
                         </li>
                     </ul>
 

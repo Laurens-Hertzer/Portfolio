@@ -95,6 +95,14 @@ export default function SchulProjekte() {
     width: 5%;
     filter: invert(1);
 }
+.carousel-indicators button {
+    border: 2px solid black;
+    background-color: white;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}
         `//object-fit: cover;
                     }
                 </style>

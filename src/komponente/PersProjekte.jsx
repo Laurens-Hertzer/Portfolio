@@ -41,15 +41,15 @@ export default function PersProjekte() {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="/1.svg"
+                        <img className="d-block w-100" src="/bashcode.svg"
                              alt="First slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/2.svg"
+                        <img className="d-block w-100" src="/ubunbu.svg"
                              alt="Second slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/3.svg"
+                        <img className="d-block w-100" src="/intelllij.svg"
                              alt="Third slide"/>
                     </div>
                 </div>
@@ -86,14 +86,13 @@ export default function PersProjekte() {
 .carousel-item img {
   width: 70%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto; 
 }
 .carousel-control-prev,
 .carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.3);
+
     width: 5%;
-    filter: invert(1);
 }
         `//object-fit: cover;
                     }

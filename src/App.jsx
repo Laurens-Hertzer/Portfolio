@@ -47,12 +47,12 @@ function App() {
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/persProjekte">
-                                                persöhnliche Projekte
+                                                Persöhnliche Projekte
                                             </Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/schulProjekte">
-                                                schulische Projekte
+                                                Schulische Projekte
                                             </Link>
                                         </li>
                                     </ul>
