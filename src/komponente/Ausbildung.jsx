@@ -1,6 +1,6 @@
 export default function Ausbildung() {
     const documents = [
-        // --- KBW / IMS ---
+
         {
             title: "Zeugnis IMS Semester 1 (KBW)",
             description: "Zeugnis des ersten Semesters an der IMS (KBW).",
@@ -20,7 +20,6 @@ export default function Ausbildung() {
             id: "ims-sem3"
         },
 
-        // --- BBW ---
         {
             title: "Zeugnis IMS Semester 1 (BBW)",
             description: "Zeugnis eines Semesters an der Berufsbildungsschule Winterthur.",
@@ -40,7 +39,6 @@ export default function Ausbildung() {
             id: "bbw-sem3"
         },
 
-        // --- SEK ---
         {
             title: "Zeugnis Sekundarschule – Jahr 1",
             description: "Erstes Jahreszeugnis der Sekundarschule.",

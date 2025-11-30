@@ -21,11 +21,9 @@ export default function Footer() {
                         </li>
                     </ul>
 
-                    {/* E-Mail & GitHub */}
                     <div className="d-flex justify-content-center align-items-center gap-4 mb-3">
                         <div className="text-muted text-decoration-none">E-Mail:</div>
 
-                        {/* E-Mail Spot */}
                         <a
                             href="mailto:laurens.hertzer@gmail.com"
                             className="text-muted"
@@ -33,7 +31,6 @@ export default function Footer() {
                         >laurens.hertzer@gmail.com
                         </a>
 
-                        {/* GitHub Icon */}
                         <a
                             href="https://github.com/laurens-hertzer"
                             target="_blank"
