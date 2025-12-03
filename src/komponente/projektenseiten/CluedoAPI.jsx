@@ -6,46 +6,29 @@ export default function CluedoAPI() {
             title="Portfolio Website"
             description="Meine persönliche Portfolio-Website gebaut mit React, Vite und Spring Boot"
             technologies={[
-                "React",
-                "Vite",
-                "Spring Boot",
-                "React Router",
-                "Bootstrap 5",
-                "JavaScript",
+                "SpringBoot",
                 "Java"
             ]}
             images={[
-                "/1.svg",
-                "/2.svg",
-                "/3.svg"
+                "/cluedoapi.png"
             ]}
-            githubLink="https://github.com/IhrUsername/portfolio"
+            githubLink="https://github.com/laurens-hertzer/cluedo_api"
             liveLink="/"
         >
-            {/* Detaillierter Content über das Projekt */}
+
             <h2 className="mb-4">Über dieses Projekt</h2>
 
             <div className="mb-4">
                 <h4>Projektziel</h4>
                 <p>
-                    Diese Portfolio-Website wurde entwickelt, um meine persönlichen Projekte
-                    und Fähigkeiten als Entwickler zu präsentieren. Das Ziel war es, eine
-                    moderne, responsive und benutzerfreundliche Plattform zu schaffen.
+                    Diese API ist für das Holen von Daten für ein Cluedospiel.
                 </p>
             </div>
 
             <div className="mb-4">
                 <h4>Technische Umsetzung</h4>
                 <p>
-                    Das Frontend wurde mit <strong>React</strong> und <strong>Vite</strong> aufgebaut,
-                    was eine schnelle Entwicklung und optimale Performance ermöglicht.
-                    <strong>React Router</strong> sorgt für eine nahtlose Navigation zwischen
-                    den verschiedenen Seiten.
-                </p>
-                <p>
-                    Das Backend basiert auf <strong>Spring Boot</strong>, welches eine robuste
-                    und skalierbare API-Struktur bereitstellt. Die Integration zwischen Frontend
-                    und Backend erfolgt über RESTful APIs.
+                    Diese API wurde mithilfe von Springboot gebaut.
                 </p>
             </div>
 
@@ -53,19 +36,7 @@ export default function CluedoAPI() {
                 <h4>Features</h4>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">
-                        <strong>Responsive Design:</strong> Optimiert für alle Bildschirmgrößen
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Projekt-Carousel:</strong> Interaktive Präsentation von Projekten
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Dynamisches Routing:</strong> Effiziente Navigation mit React Router
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Bootstrap Integration:</strong> Modernes und konsistentes UI-Design
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Komponentenbasierte Architektur:</strong> Wiederverwendbare React-Komponenten
+                        <strong>Get von Daten:</strong> Einfach in die Suchleiste vom Browser das korrekte hineinschreiben.
                     </li>
                 </ul>
             </div>
@@ -73,21 +44,14 @@ export default function CluedoAPI() {
             <div className="mb-4">
                 <h4>Herausforderungen & Lösungen</h4>
                 <p>
-                    Eine der größten Herausforderungen war die Integration von React Router
-                    mit Spring Boot. Durch korrekte Konfiguration der Build-Prozesse und
-                    Server-Einstellungen konnte eine nahtlose Single-Page-Application (SPA)
-                    realisiert werden.
+                  work in progress
                 </p>
             </div>
 
             <div className="mb-4">
                 <h4>Zukünftige Erweiterungen</h4>
                 <ul>
-                    <li>Dunkelmodus-Unterstützung</li>
-                    <li>Mehrsprachigkeit (i18n)</li>
-                    <li>Blog-Funktionalität</li>
-                    <li>Kontaktformular mit Backend-Integration</li>
-                    <li>Performance-Optimierungen</li>
+                    <li>work in progress</li>
                 </ul>
             </div>
 

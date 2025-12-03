@@ -1,7 +1,7 @@
 export default function Projekt({ title, description, technologies, images, githubLink, liveLink, children }) {
     return (
         <div className="min-vh-100 bg-light">
-            {/* Header Section */}
+
             <div className="container-fluid p-5 bg-dark text-white">
                 <div className="container">
                     <h1 className="display-4 mb-3">{title}</h1>
@@ -9,7 +9,7 @@ export default function Projekt({ title, description, technologies, images, gith
                 </div>
             </div>
 
-            {/* Bilder Carousel (falls vorhanden) */}
+
             {images && images.length > 0 && (
                 <div className="container my-5">
                     <div
@@ -69,7 +69,6 @@ export default function Projekt({ title, description, technologies, images, gith
                 </div>
             )}
 
-            {/* Technologien Section */}
             {technologies && technologies.length > 0 && (
                 <div className="container my-5">
                     <div className="bg-white p-4 rounded shadow">
@@ -96,7 +95,6 @@ export default function Projekt({ title, description, technologies, images, gith
                 </div>
             </div>
 
-            {/* Links Section */}
             {(githubLink || liveLink) && (
                 <div className="container my-5">
                     <div className="d-flex gap-3 justify-content-center">
@@ -126,7 +124,6 @@ export default function Projekt({ title, description, technologies, images, gith
                 </div>
             )}
 
-            {/* Zurück Button */}
             <div className="container my-5 text-center">
                 <a href="/PersProjekte" className="btn btn-secondary btn-lg">
                     <i className="bi bi-arrow-left me-2"></i>
