@@ -41,15 +41,15 @@ export default function PersProjekte() {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="/bashcode.svg"
+                        <img className="d-block w-100" src="/src/assets/bashcode.svg"
                              alt="First slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/ubunbu.svg"
+                        <img className="d-block w-100" src="/src/assets/ubunbu.svg"
                              alt="Second slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/intelllij.svg"
+                        <img className="d-block w-100" src="/src/assets/intelllij.svg"
                              alt="Third slide"/>
                     </div>
                 </div>

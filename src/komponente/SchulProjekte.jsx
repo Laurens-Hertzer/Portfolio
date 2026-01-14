@@ -41,15 +41,15 @@ export default function SchulProjekte() {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="/Berufsbildungsschule_Winterthur_logo.svg"
+                        <img className="d-block w-100" src="/src/assets/Berufsbildungsschule_Winterthur_logo.svg"
                              alt="First slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/Logog_KBW_farbig2.svg"
+                        <img className="d-block w-100" src="/src/assets/Logog_KBW_farbig2.svg"
                              alt="Second slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/zeugnis.svg"
+                        <img className="d-block w-100" src="/src/assets/zeugnis.svg"
                              alt="Third slide"/>
                     </div>
                 </div>

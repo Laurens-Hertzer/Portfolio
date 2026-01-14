@@ -32,13 +32,13 @@ export default function Index() {
 
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="/ich.svg" alt="First slide"/>
+                        <img className="d-block w-100" src="/src/assets/ich.svg" alt="First slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/ich.jpg" alt="Second slide"/>
+                        <img className="d-block w-100" src="/src/assets/ich.jpg" alt="Second slide"/>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="/3.svg" alt="Third slide"/>
+                        <img className="d-block w-100" src="/src/assets/3.svg" alt="Third slide"/>
                     </div>
                 </div>
 

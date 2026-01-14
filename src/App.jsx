@@ -6,17 +6,17 @@ import Portfolio from "./komponente/projektenseiten/Portfolio.jsx";
 import Footer from "./komponente/Footer.jsx";
 import CluedoAPI from "./komponente/projektenseiten/CluedoAPI.jsx";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
-//import 'mdb-ui-kit/css/mdb.min.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
-//import "./css/colors.css"
 
 
 function App() {
 
+    const basename = import.meta.env.PROD ? "/portfolio_hertzer" : "";
+
     return (
-        <Router>
+        <Router basename={basename}>
             <div style={{padding: "0px", fontFamily: "Arial, sans-serif"}}>
                 <header>
                     <div>

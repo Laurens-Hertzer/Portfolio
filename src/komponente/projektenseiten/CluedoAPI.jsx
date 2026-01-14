@@ -10,7 +10,7 @@ export default function CluedoAPI() {
                 "Java"
             ]}
             images={[
-                "/cluedoapi.png"
+                "/assets/cluedoapi.png"
             ]}
             githubLink="https://github.com/laurens-hertzer/cluedo_api"
             liveLink="/"
