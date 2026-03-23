@@ -1,6 +1,6 @@
 # Portfolio  Laurens Alexander Hertzer
 
-Meine persönliche Portfolio-Website, auf der ich meine Projekte und meinen Ausbildungsweg präsentiere.
+My personal portfolio website showcasing myself and my projects.
 
 🌐 **Live:** [laurens-hertzer.github.io/portfolio_hertzer](https://Laurens-Hertzer.github.io/portfolio_hertzer)
 
@@ -8,33 +8,43 @@ Meine persönliche Portfolio-Website, auf der ich meine Projekte und meinen Ausb
 
 ## Tech Stack
 
-| Bereich | Technologie |
-|---------|-------------|
+| Area | Technology |
+|------|------------|
 | Frontend | React 19, JavaScript |
 | Build Tool | Vite |
 | Routing | React Router 7 (HashRouter) |
-| Styling | Bootstrap 5, eigenes CSS |
+| Styling | Bootstrap 5, CSS |
 | Deployment | GitHub Pages (`gh-pages`) |
 
 ---
 
 ## Deployment
 
-Die Website wird automatisch auf GitHub Pages deployed:
+The website is automatically deployed to GitHub Pages:
 
 ```bash
-# Baut das Projekt und pushed auf den gh-pages Branch
 npm run deploy
 ```
 
-> Der `gh-pages` Branch wird automatisch verwaltet und sollte nie manuell bearbeitet werden.
+> The `gh-pages` branch is managed automatically and should never be edited manually.
 
 ---
 
-## Branch-Struktur
+## Commit Convention
+
+| Prefix | Meaning          |
+|--------|------------------|
+| `feat:` | New feature      | 
+| `fix:` | Bug fix          |
+| `style:` | CSS and design   | 
+| `refactor:` | Code restructure |
+| `docs:` | Documentation    |
+
+---
+
+## Branch Structure
 
 ```
-main    → stabiler, deployter Code
-dev     → laufende Entwicklung
-feature/... → ein Branch pro Feature
+main      -> only branch, development and deployment
+gh-pages  -> auto-generated HTML,CSS and JS, never is edited manually
 ```
