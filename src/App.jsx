@@ -5,76 +5,62 @@ import Index from "./komponente/Index.jsx";
 import Portfolio from "./komponente/projektenseiten/Portfolio.jsx";
 import Footer from "./komponente/Footer.jsx";
 import CluedoAPI from "./komponente/projektenseiten/CluedoAPI.jsx";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
+import {HashRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+const links = [
+    { to: "/",             label: "Home",                 end: true },
+    { to: "/ausbildung",   label: "Ausbildung" },
+    { to: "/persProjekte", label: "Persönliche Projekte" },
+    { to: "/schulProjekte",label: "Schulische Projekte" },
+];
 
-function App() {
-
-    const basename = import.meta.env.PROD ? "/portfolio_hertzer" : "";
-
+export default function App() {
     return (
-        <Router basename={basename}>
-            <div style={{padding: "0px", fontFamily: "Arial, sans-serif"}}>
-                <header>
-                    <div>
-                        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                            <div className="container-fluid">
-                                <Link className="navbar-brand" to="/"></Link>
-                                <button
-                                    className="navbar-toggler"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNav"
-                                    aria-controls="navbarNav"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"></span>
-                                </button>
-                                <div className="collapse navbar-collapse" id="navbarNav">
-                                    <ul className="navbar-nav">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">
-                                                Home
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/ausbildung">
-                                                Ausbildung
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/persProjekte">
-                                                Persöhnliche Projekte
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/schulProjekte">
-                                                Schulische Projekte
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+        <Router>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+                <div className="container">
+                    <NavLink className="navbar-brand fw-bold" to="/">
+                        L.<span className="text-accent">H</span>
+                    </NavLink>
+
+                    <button className="navbar-toggler" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#nav">
+                        <span className="navbar-toggler-icon" />
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="nav">
+                        <ul className="navbar-nav ms-auto gap-2">
+                            {links.map(({ to, label, end }) => (
+                                <li className="nav-item" key={to}>
+                                    <NavLink to={to} end={end}
+                                             className={({ isActive }) =>
+                                                 "nav-link" + (isActive ? " text-accent" : " text-secondary")
+                                             }
+                                    >
+                                        {label}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </header>
-            </div>
+                </div>
+            </nav>
 
+            <main>
+                <Routes>
+                    <Route path="/"              element={<Index />} />
+                    <Route path="/ausbildung"    element={<Ausbildung />} />
+                    <Route path="/persProjekte"  element={<PersProjekte />} />
+                    <Route path="/schulProjekte" element={<SchulProjekte />} />
+                    <Route path="/Portfolio"     element={<Portfolio />} />
+                    <Route path="/CluedoAPI"     element={<CluedoAPI />} />
+                </Routes>
+            </main>
 
-            <Routes>
-                <Route path="/" element={<Index/>}/>
-                <Route path="/ausbildung" element={<Ausbildung/>}/>
-                <Route path="/persProjekte" element={<PersProjekte/>}/>
-                <Route path="/schulProjekte" element={<SchulProjekte/>}/>
-                <Route path="/Portfolio" element={<Portfolio/>}/>
-                <Route path="/CluedoAPI" element={<CluedoAPI/>}/>
-            </Routes>
-            <Footer/>
+            <Footer />
         </Router>
     );
 }
-
-export default App;
