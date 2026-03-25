@@ -1,14 +1,15 @@
-import PersProjekte from "./komponente/PersProjekte.jsx";
-import Ausbildung from "./komponente/Ausbildung.jsx";
+import { HashRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import Index         from "./komponente/Index.jsx";
+import Ausbildung    from "./komponente/Ausbildung.jsx";
+import PersProjekte  from "./komponente/PersProjekte.jsx";
 import SchulProjekte from "./komponente/SchulProjekte.jsx";
-import Index from "./komponente/Index.jsx";
-import Portfolio from "./komponente/projektenseiten/Portfolio.jsx";
-import Footer from "./komponente/Footer.jsx";
-import CluedoAPI from "./komponente/projektenseiten/CluedoAPI.jsx";
-import {HashRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom"
+import Portfolio     from "./komponente/projektenseiten/Portfolio.jsx";
+import CluedoAPI     from "./komponente/projektenseiten/CluedoAPI.jsx";
+import Footer        from "./komponente/Footer.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "./css/global.css";
 
 const links = [
     { to: "/",             label: "Home",                 end: true },
