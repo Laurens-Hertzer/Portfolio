@@ -1,120 +1,31 @@
-import Projekt from "./Projekt.jsx";
+import { ProjectCard } from "./ProjectCard.jsx";
+
+const projects = [
+    {
+        title:  "Portfolio Website",
+        desc:   "Portfolio Website für das Darstellen von meinen Projekten und mich selber-",
+        tags:   ["React", "Vite", "GitHub Pages"],
+        link:   "/Portfolio",
+        github: "https://github.com/laurens-hertzer/portfolio_hertzer",
+        type:   "PERSÖNLICH",
+        icon:   "src/assets/portfolio-icon.png",
+    },
+];
 
 export default function PersProjekte() {
-    const projects = [
-        {
-            title: "Portfolio",
-            desc: "Meine Portfolio-Website, die Website auf welcher sie gerade sind",
-            link: "/Portfolio"
-        }
-    ];
     return (
         <>
-            <div
-                id="carouselExampleIndicators"
-                className="carousel slide"
-                data-bs-ride="carousel"
-                style={{height: "50%", margin: "0 auto"}}
-            >
-                <div className="carousel-indicators">
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0"
-                        className="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
-                    ></button>
-                </div>
-
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src="/src/assets/bashcode.svg"
-                             alt="First slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="/src/assets/ubunbu.svg"
-                             alt="Second slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="/src/assets/intelllij.svg"
-                             alt="Third slide"/>
-                    </div>
-                </div>
-
-                <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
-                >
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-
-                <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
-                >
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-                <style>
-                    {`
-          .carousel-inner {
-  height: 500px; /* Gewünschte Carousel-Höhe */
-}
-
-.carousel-item {
-  height: 100%;
-}
-
-.carousel-item img {
-  width: 70%;
-  height: 100%;
-  object-fit: cover;
-  margin: 0 auto; 
-}
-.carousel-control-prev,
-.carousel-control-next {
-
-    width: 5%;
-}
-        `//object-fit: cover;
-                    }
-                </style>
+            <div className="container py-5">
+                <p className="mono text-accent mb-2">// Persönliche Projekte</p>
+                <h1 className="text-white mb-1">Was ich aus eigenem Antrieb gebaut habe</h1>
+                <p className="text-secondary">Projekte, die ich in meiner Freizeit entwickelt habe.</p>
             </div>
-            <>
-                <div className="container-fluid p-4 bg-dark text-white">
-                    <h1>Meine persönlichen Projekte</h1>
-                    <p>Projekte welche ich von meiner eigenen Initiative für mich selber programmiert habe</p>
-                </div>
-            </>
-            <div className="container-fluid bg-white text-black py-5">
+
+            <hr className="border-secondary" />
+
+            <div className="container py-5">
                 <div className="row g-4">
-                    {projects.map((p, i) => (
-                        <div className="col-md-4" key={i}>
-                            <div className="p-4 bg-secondary rounded shadow h-100">
-                                <h3 className="mb-3">{p.title}</h3>
-                                <p className="text-light">{p.desc}</p>
-                                <a className="btn btn-light mt-2" href={p.link}>Ansehen</a>
-                            </div>
-                        </div>
-                    ))}
+                    {projects.map(p => <ProjectCard key={p.title} {...p} />)}
                 </div>
             </div>
         </>
