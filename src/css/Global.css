@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --accent:  #2a6b82;
+    --accent-light: #3d8fa8;
+    --bg:      #09090f;
+    --bg-card: #0d1117;
+    --border:  rgba(255,255,255,0.08);
+}
+
+body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Bootstrap überschreiben */
+.bg-dark         { background: var(--bg)      !important; }
+.bg-secondary    { background: var(--bg-card) !important; }
+.border-secondary{ border-color: var(--border)!important; }
+.text-accent     { color: var(--accent-light); }
+
+/* Headlines */
+.display-1, .display-2, h1, h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+/* Blinkender Punkt */
+.dot-blink {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.2; }
+}
+
+/* Karten-Hover */
+.project-card {
+    transition: border-color 0.2s;
+    border: 1px solid var(--border) !important;
+}
+.project-card:hover {
+    border-color: var(--accent) !important;
+}
+
+/* Buttons mit Akzentfarbe */
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+}
+.btn-accent:hover {
+    background: var(--accent-light);
+    color: #fff;
+}
