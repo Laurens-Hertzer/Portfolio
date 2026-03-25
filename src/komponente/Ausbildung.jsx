@@ -1,172 +1,122 @@
+const timeline = [
+    {
+        date:    "2023 – 2026",
+        title:   "IMS Informatikmittelschule",
+        place:   "Mittelschule Büelrain & BBW Winterthur",
+        badge:   "Applikationsentwickler EFZ + Berufsmaturität",
+        active:  true,
+        details: [
+            "Programmieren mit Java und JavaScript",
+            "Datenbanken, Netzwerke und Webentwicklung",
+            "Mathematik, Wirtschaft, Englisch und Deutsch",
+        ],
+    },
+    {
+        date:    "2020 – 2023",
+        title:   "Sekundarschule",
+        place:   "Öffentliche Schule, Kanton Zürich",
+        active:  false,
+        details: [],
+    },
+    {
+        date:    "Davor",
+        title:   "Bilinguale Primarschule",
+        place:   "Deutsch / Englisch",
+        active:  false,
+        details: [],
+    },
+];
+
+const skills = [
+    { category: "Backend",   items: ["Java", "Spring Boot", "REST APIs", "SQL"] },
+    { category: "Frontend",  items: ["React", "JavaScript", "Bootstrap", "HTML/CSS"] },
+    { category: "Tools",     items: ["Git", "IntelliJ", "Linux", "Vite"] },
+];
+
 export default function Ausbildung() {
-    const documents = [
-
-        {
-            title: "Zeugnis IMS Semester 1 (KBW)",
-            description: "Zeugnis des ersten Semesters an der IMS (KBW).",
-            path: "ims_sem1.pdf",
-            id: "ims-sem1"
-        },
-        {
-            title: "Zeugnis IMS Semester 2 (KBW)",
-            description: "Zeugnis des zweiten Semesters an der IMS (KBW).",
-            path: "ims_sem2.pdf",
-            id: "ims-sem2"
-        },
-        {
-            title: "Zeugnis IMS Semester 3 (KBW)",
-            description: "Zeugnis des dritten Semesters an der IMS (KBW).",
-            path: "ims_sem3.pdf",
-            id: "ims-sem3"
-        },
-
-        {
-            title: "Zeugnis IMS Semester 1 (BBW)",
-            description: "Zeugnis eines Semesters an der Berufsbildungsschule Winterthur.",
-            path: "bbw_sem1.pdf",
-            id: "bbw-sem1"
-        },
-        {
-            title: "Zeugnis IMS Semester 2 (BBW)",
-            description: "Zeugnis eines Semesters an der Berufsbildungsschule Winterthur.",
-            path: "bbw_sem2.pdf",
-            id: "bbw-sem2"
-        },
-        {
-            title: "Zeugnis IMS Semester 3 (BBW)",
-            description: "Zeugnis eines Semesters an der Berufsbildungsschule Winterthur.",
-            path: "bbw_sem3.pdf",
-            id: "bbw-sem3"
-        },
-
-        {
-            title: "Zeugnis Sekundarschule – Jahr 1",
-            description: "Erstes Jahreszeugnis der Sekundarschule.",
-            path: "sek_jahr1.pdf",
-            id: "sek1"
-        },
-        {
-            title: "Zeugnis Sekundarschule – Jahr 2",
-            description: "Zweites Jahreszeugnis der Sekundarschule.",
-            path: "sek_jahr2.pdf",
-            id: "sek2"
-        },
-        {
-            title: "Zeugnis Sekundarschule – Jahr 3",
-            description: "Drittes Jahreszeugnis der Sekundarschule.",
-            path: "sek_jahr3.pdf",
-            id: "sek3"
-        }
-    ];
-
     return (
         <>
-            <style>
-                {`
-                    h1 {
-                        text-align: center;
-                    }
-                `}
-            </style>
-
-            <div className="container-fluid p-4 bg-dark text-white">
-                <h1 className="display-1">Meine Ausbildung</h1>
+            <div className="container py-5">
+                <p className="mono text-accent mb-2">// Ausbildung</p>
+                <h1 className="text-white mb-1">Mein Werdegang</h1>
+                <p className="text-secondary">Vom Schüler zum Applikationsentwickler.</p>
             </div>
 
-            <div className="container-fluid normalText p-4">
-                <p className="h2 fw-bold">Gerade jetzt</p>
-                <p className="h5">
-                    Momentan besuche ich die IMS (Informatikmittelschule) an der Mittelschule Büelrain und
-                    Berufsbildungsschule in Winterthur. Dort erlerne ich den Beruf des Applikationsentwicklers EFZ
-                    mit der wirtschaftlichen Berufsmaturität.
-                </p>
+            <hr className="border-secondary" />
 
-                <p className="h2 fw-bold">Davor</p>
-                <p className="h5">
-                    Bis dahin habe ich als erstes eine Deutsch/Englisch Bilinguale Schule besucht, bis ich dann
-                    während der Primarschule zur öffentlichen Schule wechselte.
-                </p>
-            </div>
+            {/* Timeline */}
+            <div className="container py-5">
+                <p className="mono text-accent mb-4">// Werdegang</p>
+                <div className="border-start border-secondary ps-4">
+                    {timeline.map((item, i) => (
+                        <div key={i} className="mb-5 position-relative">
+                            <div className="position-absolute rounded-circle"
+                                 style={{
+                                     width: 12, height: 12,
+                                     left: -29, top: 4,
+                                     background: item.active ? "var(--accent)" : "rgba(255,255,255,0.2)",
+                                     boxShadow: item.active ? "0 0 0 4px rgba(126,255,212,0.15)" : "none",
+                                 }}
+                            />
+                            <p className="mono text-secondary mb-1">{item.date}</p>
+                            <h5 className="text-white mb-0">{item.title}</h5>
+                            <p className="text-secondary small mb-2">{item.place}</p>
 
-            <div className="container my-5">
-                <h2 className="mb-4 text-center">Meine Dokumente</h2>
+                            {item.badge && (
+                                <span className="mono text-accent border rounded px-2 py-1 d-inline-block mb-3"
+                                      style={{ fontSize: "0.65rem", borderColor: "var(--accent)" }}>
+                  {item.badge}
+                </span>
+                            )}
 
-                <div className="row g-4">
-                    {documents.map((doc, index) => (
-                        <div className="col-md-4" key={index}>
-                            <div className="p-4 bg-secondary rounded shadow h-100 text-white">
-                                <h3 className="mb-3">{doc.title}</h3>
-                                <p className="text-light flex-grow-1">{doc.description}</p>
-
-                                <div className="d-grid gap-2 mt-3">
-                                    <button
-                                        className="btn btn-light"
-                                        data-bs-toggle="modal"
-                                        data-bs-target={`#modal${doc.id}`}
-                                    >
-                                        Preview
-                                    </button>
-
-                                    <a
-                                        href={doc.path}
-                                        className="btn btn-outline-light"
-                                        download
-                                    >
-                                        Download
-                                    </a>
-                                </div>
-                            </div>
-
+                            {item.details.length > 0 && (
+                                <ul className="text-secondary small mb-0 ps-3">
+                                    {item.details.map((d, j) => (
+                                        <li key={j}>{d}</li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     ))}
                 </div>
             </div>
 
-            {documents.map((doc, index) => (
-                <div className="modal fade" id={`modal${doc.id}`} tabIndex="-1" key={index}>
-                    <div className="modal-dialog modal-xl">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{doc.title}</h5>
-                                <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                ></button>
-                            </div>
+            <hr className="border-secondary" />
 
-                            <div className="modal-body p-0">
-                                <iframe
-                                    src={doc.path}
-                                    width="100%"
-                                    height="600px"
-                                    style={{ border: 'none' }}
-                                    title={doc.title}
-                                />
-                            </div>
-
-                            <div className="modal-footer">
-                                <a
-                                    href={doc.path}
-                                    className="btn btn-primary"
-                                    download
-                                >
-                                    Download
-                                </a>
-
-                                <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Schließen
-                                </button>
+            {/* Skills */}
+            <div className="container py-5">
+                <p className="mono text-accent mb-4">// Kenntnisse</p>
+                <div className="row g-4">
+                    {skills.map(({ category, items }) => (
+                        <div key={category} className="col-md-4">
+                            <div className="bg-secondary rounded p-4 h-100">
+                                <h6 className="text-white mb-3">{category}</h6>
+                                <div className="d-flex flex-wrap gap-2">
+                                    {items.map(item => (
+                                        <span key={item} className="badge bg-dark text-secondary mono">{item}</span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
-            ))}
+            </div>
+
+            <hr className="border-secondary" />
+
+            {/* Contact for documents */}
+            <div className="container py-5">
+                <div className="bg-secondary rounded p-4">
+                    <p className="mono text-accent mb-2">// Dokumente</p>
+                    <h5 className="text-white mb-2">Zeugnisse auf Anfrage</h5>
+                    <p className="text-secondary small mb-3">
+                        Offizielle Zeugnisse und weitere Dokumente stelle ich gerne auf Anfrage zur Verfügung.
+                    </p>
+                    <a href="mailto:laurens.hertzer@gmail.com" className="btn btn-outline-secondary btn-sm">
+                        Anfrage per E-Mail
+                    </a>
+                </div>
+            </div>
         </>
     );
 }
