@@ -1,107 +1,82 @@
+import { Link } from "react-router-dom";
+
+const stack    = ["Java", "Spring Boot", "React", "JavaScript", "Vite", "Git", "Linux", "SQL"];
+const featured = ["Java", "Spring Boot", "React", "JavaScript"];
+
 export default function Index() {
     return (
         <>
-            <div
-                id="carouselExampleIndicators"
-                className="carousel slide"
-                data-bs-ride="carousel"
-                style={{height: "50%", margin: "0 auto"}}
-            >
-                <div className="carousel-indicators">
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0"
-                        className="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
-                    ></button>
+            {/* Hero */}
+            <div className="container py-5">
+                <p className="mono text-accent mb-3 d-flex align-items-center gap-2">
+                    <span className="dot-blink d-inline-block" />
+                    VERFÜGBAR FÜR PRAKTIKA &amp; KOOPERATIONEN
+                </p>
+
+                <h1 className="display-1 text-white mb-4">
+                    Laurens Alexander<br />
+                    <span className="text-accent" style={{ letterSpacing: "0.1em", fontSize: "0.6em" }}>
+                        HERTZER
+                    </span>
+                </h1>
+
+                <p className="text-secondary fs-5 fw-light mb-4" style={{ maxWidth: "480px" }}>
+                    Applikationsentwickler EFZ in Ausbildung · IMS Winterthur.
+                    Ich baue saubere Software mit Java und React.
+                </p>
+
+                <div className="d-flex gap-3 flex-wrap">
+                    <Link to="/persProjekte" className="btn btn-light">Projekte ansehen →</Link>
+                    <Link to="/ausbildung"   className="btn btn-outline-secondary">Ausbildung</Link>
                 </div>
+            </div>
 
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src="/src/assets/ich.svg" alt="First slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="/src/assets/ich.jpg" alt="Second slide"/>
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src="/src/assets/3.svg" alt="Third slide"/>
-                    </div>
+            <hr className="border-secondary" />
+
+            {/* Stats */}
+            <div className="container py-4">
+                <div className="row row-cols-3 text-center g-0 border border-secondary rounded">
+                    {[
+                        { num: "1+",   label: "Jahre Coding" },
+                        { num: "5+",   label: "Projekte" },
+                        { num: "2027", label: "Abschluss EFZ" },
+                    ].map(({ num, label }, i) => (
+                        <div key={label} className={`col py-4 ${i < 2 ? "border-end border-secondary" : ""}`}>
+                            <div className="h1 text-white mb-1">{num}</div>
+                            <div className="mono text-secondary">// {label}</div>
+                        </div>
+                    ))}
                 </div>
-
-                <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
-                >
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-
-                <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
-                >
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
             </div>
-            <div className="container-fluid p-4 bg-dark text-white">
-                <h1>Meine Homepage</h1>
-                <p>Die Startseite meiner Website</p>
+
+            {/* Tech Stack */}
+            <div className="container py-4">
+                <p className="mono text-accent mb-3">// Tech Stack</p>
+                <div className="d-flex flex-wrap gap-2">
+                    {stack.map(s => (
+                        <span key={s} className={`badge rounded-pill px-3 py-2 mono ${
+                            featured.includes(s)
+                                ? "text-accent border border-accent"
+                                : "text-secondary border border-secondary"
+                        }`}
+                              style={ featured.includes(s) ? { borderColor: "var(--accent) !important" } : {} }
+                        >
+              {s}
+            </span>
+                    ))}
+                </div>
             </div>
-            <div className="container-fluid normalText p-4">
-                <p className="h2 fw-bold">Guten Tag Besucher. </p>
-                <p className="h4 ">
-                    Sie sind hier auf der meiner Portfolio Website auf welcher Sie meine Projekte,
-                    schulisch wie auch persöhnliche, finden können. Falls Sie von meinen Projekten, meinen Kenntnissen
-                    und
-                    meinem Können beindruckt sind können Sie mehr über mich und meinen Ausbildungsweg nachschauen.
-                    Gefällt es Ihnen wer ich bin? Kontaktieren Sie mich über meine Kontaktierungsmöglichkeiten, ganz
-                    unten auf der Seite angezeigt.
+
+            <hr className="border-secondary" />
+
+            {/* Intro */}
+            <div className="container py-5">
+                <p className="mono text-accent mb-3">// Wer bin ich?</p>
+                <p className="text-secondary" style={{ maxWidth: "560px" }}>
+                    Willkommen auf meiner Portfolio-Website. Hier finden Sie meine Projekte —
+                    schulisch wie persönlich —, meinen Ausbildungsweg und wie Sie mich erreichen können.
                 </p>
             </div>
-            <style>
-                {`
-.carousel-inner {
-  height: 500px; /* Gewünschte Carousel-Höhe */
-}
-
-.carousel-item {
-  height: 100%;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 200%;
-  object-fit: cover;
-  margin: 0 auto; 
-}
-.carousel-control-prev,
-.carousel-control-next {
-    
-    width: 5%;
-    filter: invert(1);
-}
-        `}
-            </style>
         </>
-    )
-        ;
+    );
 }
