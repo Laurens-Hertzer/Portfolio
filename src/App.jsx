@@ -22,8 +22,8 @@ export default function App() {
         <Router>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
                 <div className="container">
-                    <NavLink className="navbar-brand fw-bold" to="/">
-                        L.<span className="text-accent">H</span>
+                    <NavLink className="navbar-brand" to="/">
+                        <img src="/src/assets/logo.png" alt="L-A-H" height={36} />
                     </NavLink>
 
                     <button className="navbar-toggler" type="button"
