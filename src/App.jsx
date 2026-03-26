@@ -3,8 +3,6 @@ import Index         from "./komponente/Index.jsx";
 import Ausbildung    from "./komponente/Ausbildung.jsx";
 import PersProjekte  from "./komponente/PersProjekte.jsx";
 import SchulProjekte from "./komponente/SchulProjekte.jsx";
-import Portfolio     from "./komponente/projektenseiten/Portfolio.jsx";
-import CluedoAPI     from "./komponente/projektenseiten/CluedoAPI.jsx";
 import Footer        from "./komponente/Footer.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -56,8 +54,6 @@ export default function App() {
                     <Route path="/ausbildung"    element={<Ausbildung />} />
                     <Route path="/persProjekte"  element={<PersProjekte />} />
                     <Route path="/schulProjekte" element={<SchulProjekte />} />
-                    <Route path="/Portfolio"     element={<Portfolio />} />
-                    <Route path="/CluedoAPI"     element={<CluedoAPI />} />
                 </Routes>
             </main>
 
