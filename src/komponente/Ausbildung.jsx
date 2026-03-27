@@ -1,14 +1,24 @@
 const timeline = [
     {
-        date:    "2023 – 2026",
+        date:    "2027 – 2028",
+        title:   "Praktikum",
+        place:   "Noch zu bestimmen",
+        badge:   "Letzter Schritt zum Vollenden meiner schulischen Ausbildung",
+        active:  false,
+        details: [
+            "In der IMS muss nach drei Jahren Schule ein Jahr für ein Praktikum benutzt werden. Dafür stehen jedoch noch viele Details offen.",
+        ],
+    },
+    {
+        date:    "2024 – 2027",
         title:   "IMS Informatikmittelschule",
         place:   "Mittelschule Büelrain & BBW Winterthur",
-        badge:   "Applikationsentwickler EFZ + Berufsmaturität",
+        badge:   "Applikationsentwickler EFZ + Berufsmaturität Wirtschaft",
         active:  true,
         details: [
             "Programmieren mit Java und JavaScript",
             "Datenbanken, Netzwerke und Webentwicklung",
-            "Mathematik, Wirtschaft, Englisch und Deutsch",
+            "Mathematik, Wirtschaft, Finanzen, Englisch und Deutsch",
         ],
     },
     {
@@ -28,9 +38,41 @@ const timeline = [
 ];
 
 const skills = [
-    { category: "Backend",   items: ["Java", "Spring Boot", "REST APIs", "SQL"] },
-    { category: "Frontend",  items: ["React", "JavaScript", "Bootstrap", "HTML/CSS"] },
-    { category: "Tools",     items: ["Git", "IntelliJ", "Linux", "Vite"] },
+    {
+        category: "Sprachen",
+        badges: [
+            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
+            "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
+            "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
+            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
+            "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
+        ],
+    },
+    {
+        category: "Frameworks & Libraries",
+        badges: [
+            "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
+            "https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white",
+            "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
+        ],
+    },
+    {
+        category: "Datenbanken",
+        badges: [
+            "https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white",
+            "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
+        ],
+    },
+    {
+        category: "Tools",
+        badges: [
+            "https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white",
+            "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
+            "https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white",
+            "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
+            "https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white",
+        ],
+    },
 ];
 
 export default function Ausbildung() {
@@ -44,7 +86,6 @@ export default function Ausbildung() {
 
             <hr className="border-secondary" />
 
-            {/* Timeline */}
             <div className="container py-5">
                 <p className="mono text-accent mb-4">// Werdegang</p>
                 <div className="border-start border-secondary ps-4">
@@ -55,7 +96,7 @@ export default function Ausbildung() {
                                      width: 12, height: 12,
                                      left: -29, top: 4,
                                      background: item.active ? "var(--accent)" : "rgba(255,255,255,0.2)",
-                                     boxShadow: item.active ? "0 0 0 4px rgba(126,255,212,0.15)" : "none",
+                                     boxShadow: item.active ? "0 0 0 4px rgba(42,107,130,0.2)" : "none",
                                  }}
                             />
                             <p className="mono text-secondary mb-1">{item.date}</p>
@@ -65,8 +106,8 @@ export default function Ausbildung() {
                             {item.badge && (
                                 <span className="mono text-accent border rounded px-2 py-1 d-inline-block mb-3"
                                       style={{ fontSize: "0.65rem", borderColor: "var(--accent)" }}>
-                  {item.badge}
-                </span>
+                                    {item.badge}
+                                </span>
                             )}
 
                             {item.details.length > 0 && (
@@ -83,17 +124,16 @@ export default function Ausbildung() {
 
             <hr className="border-secondary" />
 
-            {/* Skills */}
             <div className="container py-5">
                 <p className="mono text-accent mb-4">// Kenntnisse</p>
                 <div className="row g-4">
-                    {skills.map(({ category, items }) => (
-                        <div key={category} className="col-md-4">
+                    {skills.map(({ category, badges }) => (
+                        <div key={category} className="col-md-6">
                             <div className="bg-secondary rounded p-4 h-100">
                                 <h6 className="text-white mb-3">{category}</h6>
                                 <div className="d-flex flex-wrap gap-2">
-                                    {items.map(item => (
-                                        <span key={item} className="badge bg-dark text-secondary mono">{item}</span>
+                                    {badges.map(url => (
+                                        <img key={url} src={url} alt="" />
                                     ))}
                                 </div>
                             </div>
@@ -104,7 +144,6 @@ export default function Ausbildung() {
 
             <hr className="border-secondary" />
 
-            {/* Contact for documents */}
             <div className="container py-5">
                 <div className="bg-secondary rounded p-4">
                     <p className="mono text-accent mb-2">// Dokumente</p>

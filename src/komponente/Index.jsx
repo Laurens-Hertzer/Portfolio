@@ -6,11 +6,10 @@ const featured = ["Java", "Spring Boot", "React", "JavaScript"];
 export default function Index() {
     return (
         <>
-            {/* Hero */}
             <div className="container py-5">
                 <p className="mono text-accent mb-3 d-flex align-items-center gap-2">
                     <span className="dot-blink d-inline-block" />
-                    VERFÜGBAR FÜR PRAKTIKA &amp; KOOPERATIONEN
+                    VERFÜGBAR FÜR PRAKTIKUM für HS 2027
                 </p>
 
                 <h1 className="display-1 text-white mb-4">
@@ -21,8 +20,7 @@ export default function Index() {
                 </h1>
 
                 <p className="text-secondary fs-5 fw-light mb-4" style={{ maxWidth: "480px" }}>
-                    Applikationsentwickler EFZ in Ausbildung · IMS Winterthur.
-                    Ich baue saubere Software mit Java und React.
+
                 </p>
 
                 <div className="d-flex gap-3 flex-wrap">
@@ -33,7 +31,6 @@ export default function Index() {
 
             <hr className="border-secondary" />
 
-            {/* Stats */}
             <div className="container py-4">
                 <div className="row row-cols-3 text-center g-0 border border-secondary rounded">
                     {[
@@ -49,7 +46,6 @@ export default function Index() {
                 </div>
             </div>
 
-            {/* Tech Stack */}
             <div className="container py-4">
                 <p className="mono text-accent mb-3">// Tech Stack</p>
                 <div className="d-flex flex-wrap gap-2">
@@ -69,12 +65,11 @@ export default function Index() {
 
             <hr className="border-secondary" />
 
-            {/* Intro */}
             <div className="container py-5">
                 <p className="mono text-accent mb-3">// Wer bin ich?</p>
                 <p className="text-secondary" style={{ maxWidth: "560px" }}>
-                    Willkommen auf meiner Portfolio-Website. Hier finden Sie meine Projekte —
-                    schulisch wie persönlich —, meinen Ausbildungsweg und wie Sie mich erreichen können.
+                    Willkommen auf meiner Portfolio-Website. Hier finden Sie meine Projekte,
+                    schulisch wie persönlich, meinen Ausbildungsweg und wie Sie mich erreichen können.
                 </p>
             </div>
         </>
