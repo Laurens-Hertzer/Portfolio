@@ -46,27 +46,10 @@ export default function Index() {
                 </div>
             </div>
 
-            <div className="container py-4">
-                <p className="mono text-accent mb-3">// Tech Stack</p>
-                <div className="d-flex flex-wrap gap-2">
-                    {stack.map(s => (
-                        <span key={s} className={`badge rounded-pill px-3 py-2 mono ${
-                            featured.includes(s)
-                                ? "text-accent border border-accent"
-                                : "text-secondary border border-secondary"
-                        }`}
-                              style={ featured.includes(s) ? { borderColor: "var(--accent) !important" } : {} }
-                        >
-              {s}
-            </span>
-                    ))}
-                </div>
-            </div>
-
             <hr className="border-secondary" />
 
             <div className="container py-5">
-                <p className="mono text-accent mb-3">// Wer bin ich?</p>
+                <p className="mono text-accent mb-3">// Die Website</p>
                 <p className="text-secondary" style={{ maxWidth: "560px" }}>
                     Willkommen auf meiner Portfolio-Website. Hier finden Sie meine Projekte,
                     schulisch wie persönlich, meinen Ausbildungsweg und wie Sie mich erreichen können.

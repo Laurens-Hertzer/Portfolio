@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function Projekt({ title, description, technologies, images, githubLink, liveLink, backLink, children }) {
+export default function Projekt({ title, description, technologies, images, githubLink, liveLink, backLink, children, contain }) {
+    const validImages = images?.filter(img => img != null && img !== "") ?? [];
     return (
         <>
             {/* Header */}
@@ -10,45 +11,49 @@ export default function Projekt({ title, description, technologies, images, gith
                 <p className="text-secondary" style={{ maxWidth: "600px" }}>{description}</p>
             </div>
 
-            <hr className="border-secondary" />
-
-            {/* Bilder */}
-            {images && images.length > 0 && (
-                <div className="container py-5">
-                    <div id="projektCarousel" className="carousel slide" data-bs-ride="carousel">
-                        <div className="carousel-indicators">
-                            {images.map((_, i) => (
-                                <button key={i} type="button"
-                                        data-bs-target="#projektCarousel"
-                                        data-bs-slide-to={i}
-                                        className={i === 0 ? "active" : ""}
-                                />
-                            ))}
-                        </div>
-                        <div className="carousel-inner rounded" style={{ maxHeight: 420 }}>
-                            {images.map((img, i) => (
-                                <div key={i} className={`carousel-item ${i === 0 ? "active" : ""}`}>
-                                    <img src={img} alt={`${title} ${i + 1}`}
-                                         className="d-block w-100"
-                                         style={{ height: 420, objectFit: "cover" }}
+            {/* Bilder - nur wenn wirklich vorhanden */}
+            {validImages.length > 0 && (
+                <>
+                    <hr className="border-secondary" />
+                    <div className="container py-5">
+                        <div id="projektCarousel" className="carousel slide" data-bs-ride="carousel">
+                            <div className="carousel-indicators">
+                                {validImages.map((_, i) => (
+                                    <button key={i} type="button"
+                                            data-bs-target="#projektCarousel"
+                                            data-bs-slide-to={i}
+                                            className={i === 0 ? "active" : ""}
                                     />
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+                            <div className="carousel-inner rounded bg-dark" style={{ height: 420 }}>
+                                {validImages.map((img, i) => (
+                                    <div key={i} className={`carousel-item h-100 ${i === 0 ? "active" : ""}`}>
+                                        <img src={img} alt={`${title} ${i + 1}`}
+                                             className="d-block w-100 h-100"
+                                             style={{
+                                                 objectFit: contain ? "contain" : "cover",
+                                                 background: "var(--bg-card)"
+                                             }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            {validImages.length > 1 && (
+                                <>
+                                    <button className="carousel-control-prev" type="button"
+                                            data-bs-target="#projektCarousel" data-bs-slide="prev">
+                                        <span className="carousel-control-prev-icon" />
+                                    </button>
+                                    <button className="carousel-control-next" type="button"
+                                            data-bs-target="#projektCarousel" data-bs-slide="next">
+                                        <span className="carousel-control-next-icon" />
+                                    </button>
+                                </>
+                            )}
                         </div>
-                        {images.length > 1 && (
-                            <>
-                                <button className="carousel-control-prev" type="button"
-                                        data-bs-target="#projektCarousel" data-bs-slide="prev">
-                                    <span className="carousel-control-prev-icon" />
-                                </button>
-                                <button className="carousel-control-next" type="button"
-                                        data-bs-target="#projektCarousel" data-bs-slide="next">
-                                    <span className="carousel-control-next-icon" />
-                                </button>
-                            </>
-                        )}
                     </div>
-                </div>
+                </>
             )}
 
             {/* Technologien */}
@@ -95,7 +100,7 @@ export default function Projekt({ title, description, technologies, images, gith
                     </a>
                 )}
                 <Link to={backLink ?? "/persProjekte"} className="btn btn-outline-secondary ms-auto">
-                    ← Zurück
+                    Zuruck
                 </Link>
             </div>
         </>

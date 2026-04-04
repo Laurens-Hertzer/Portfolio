@@ -4,10 +4,14 @@ import Ausbildung    from "./komponente/Ausbildung.jsx";
 import PersProjekte  from "./komponente/PersProjekte.jsx";
 import SchulProjekte from "./komponente/SchulProjekte.jsx";
 import Footer        from "./komponente/Footer.jsx";
+import OnlineGoWebsite from "./komponente/projektenseiten/Online_Go_Website.jsx";
+import Portfolio from "./komponente/projektenseiten/Portfolio.jsx";
+import Git_training_repo from "./komponente/projektenseiten/Git_training_repo.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./css/global.css";
+import logoImg from "./assets/icons/logo.png";
 
 const links = [
     { to: "/",             label: "Home",                 end: true },
@@ -22,7 +26,7 @@ export default function App() {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
-                        <img src="/src/assets/logo.png" alt="L-A-H" height={36} />
+                        <img src={logoImg} alt="L-A-H" height={50} />
                     </NavLink>
 
                     <button className="navbar-toggler" type="button"
@@ -54,6 +58,9 @@ export default function App() {
                     <Route path="/ausbildung"    element={<Ausbildung />} />
                     <Route path="/persProjekte"  element={<PersProjekte />} />
                     <Route path="/schulProjekte" element={<SchulProjekte />} />
+                    <Route path="/Online_Go_Website" element={<OnlineGoWebsite />} />
+                    <Route path="/Portfolio" element={<Portfolio />} />
+                    <Route path="/Git_training_repo" element={<Git_training_repo />} />
                 </Routes>
             </main>
 

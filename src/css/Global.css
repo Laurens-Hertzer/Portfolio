@@ -1,30 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono&family=DM+Sans:wght@300;400;500&display=swap');
 
-:root {
-    --accent:  #2a6b82;
+/* ── Dark mode (default) ── */
+:root, [data-theme="dark"] {
+    --accent:       #2a6b82;
     --accent-light: #3d8fa8;
-    --bg:      #09090f;
-    --bg-card: #0d1117;
-    --border:  rgba(255,255,255,0.08);
+    --bg:           #09090f;
+    --bg-card:      #0d1117;
+    --border:       rgba(255,255,255,0.08);
+    --text-hi:      #ffffff;
+    --text-mid:     rgba(255,255,255,0.6);
+    --text-lo:      rgba(255,255,255,0.3);
+}
+
+/* ── Light mode ── */
+[data-theme="light"] {
+    --bg:           #f4f6f8;
+    --bg-card:      #ffffff;
+    --border:       rgba(0,0,0,0.1);
+    --text-hi:      #0d1117;
+    --text-mid:     rgba(0,0,0,0.6);
+    --text-lo:      rgba(0,0,0,0.35);
 }
 
 body {
     background: var(--bg);
+    color: var(--text-mid);
     font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Headlines - nur einmal definiert */
+/* Headlines - angepasst */
+h1, h2, .display-1, .display-2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em; /* Etwas weniger aggressiv als -0.03em hilft oft */
+    overflow: visible;
+
+    /* 1. Zeilenhöhe leicht erhöhen */
+    line-height: 1.3;
+
+    /* 2. Padding unten vergrößern, um Platz für die Unterlängen zu schaffen */
+    padding-bottom: 0.15em;
+
+    /* Optional: Ein minimaler Margin-Bottom Ausgleich,
+       damit der optische Abstand zum nächsten Element gleich bleibt */
+    margin-bottom: 0.2rem;
 }
 
 /* Bootstrap überschreiben */
-.bg-dark         { background: var(--bg)      !important; }
-.bg-secondary    { background: var(--bg-card) !important; }
-.border-secondary{ border-color: var(--border)!important; }
-.text-accent     { color: var(--accent-light); }
-
-/* Headlines */
-.display-1, .display-2, h1, h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
+.bg-dark          { background: var(--bg)       !important; }
+.bg-secondary     { background: var(--bg-card)  !important; }
+.border-secondary { border-color: var(--border) !important; }
+.text-white       { color: var(--text-hi)        !important; }
+.text-secondary   { color: var(--text-mid)       !important; }
+.text-accent      { color: var(--accent-light); }
 
 .mono {
     font-family: 'JetBrains Mono', monospace;
@@ -55,7 +85,7 @@ body {
     border-color: var(--accent) !important;
 }
 
-/* Buttons mit Akzentfarbe */
+/* Accent Button */
 .btn-accent {
     background: var(--accent);
     color: #fff;
@@ -64,4 +94,39 @@ body {
 .btn-accent:hover {
     background: var(--accent-light);
     color: #fff;
+}
+
+/* Light mode navbar */
+[data-theme="light"] .navbar {
+    border-bottom-color: var(--border) !important;
+}
+[data-theme="light"] .navbar-dark .navbar-nav .nav-link {
+    color: var(--text-mid) !important;
+}
+
+/* list-group auf dunklem Hintergrund */
+.list-group-item {
+    background: transparent !important;
+    border-color: var(--border) !important;
+    color: var(--text-mid) !important;
+}
+
+.list-group-item strong {
+    color: var(--text-hi);
+}
+
+/* h4 in Projekt-Detailseiten */
+.text-secondary h4 {
+    color: var(--text-hi) !important;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.text-accent {
+    color: var(--accent-light) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.text-secondary {
+    color: var(--text-lo) !important;
 }

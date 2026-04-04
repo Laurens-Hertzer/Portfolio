@@ -13,8 +13,8 @@ export default function Footer() {
             <div className="container py-4 d-flex flex-wrap justify-content-between align-items-center gap-4">
 
                 <div>
-                    <div className="fw-bold text-white">L.<span className="text-accent">H</span></div>
-                    <div className="mono text-secondary">© 2025 Laurens Alexander Hertzer</div>
+                    <div className="fw-bold text-white">L.A.<span className="text-accent">H</span></div>
+                    <div className="mono text-secondary">© 2026 Laurens Alexander Hertzer</div>
                 </div>
 
                 <ul className="list-unstyled d-flex gap-4 mb-0 flex-wrap">

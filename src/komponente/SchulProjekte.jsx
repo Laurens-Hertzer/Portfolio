@@ -1,14 +1,15 @@
 import { ProjectCard } from "./ProjectCard.jsx";
+import gitIcon from "../assets/icons/git-icon.png";
 
 const projects = [
     {
-        title:  "Cluedo REST API",
-        desc:   "Eine Spring Boot API für Cluedo. Liefert Daten zu Figuren, Waffen und Räumen per GET-Request.",
-        tags:   ["Java", "Spring Boot", "REST"],
-        link:   "/CluedoAPI",
-        github: "https://github.com/laurens-hertzer/cluedo_api",
+        title:  "Git Training Repository",
+        desc:   "Ein Repository mit welchem ich den GitFlow erlernt habe. Korrektes Commiten, Merge/Mergekonflikte und Patches",
+        tags:   ["Git", "Springboot", "GitExtensions", "GitHub"],
+        link:   "/Git_training_repo",
+        github: "https://github.com/laurens-hertzer/Git_training_repo",
         type:   "SCHULISCH",
-        icon:   "?",
+        icon:   gitIcon,
     },
 ];
 

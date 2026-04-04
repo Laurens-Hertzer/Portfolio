@@ -78,7 +78,7 @@ const skills = [
 export default function Ausbildung() {
     return (
         <>
-            <div className="container py-5">
+            <div className="container py-5 pb-3">
                 <p className="mono text-accent mb-2">// Ausbildung</p>
                 <h1 className="text-white mb-1">Mein Werdegang</h1>
                 <p className="text-secondary">Vom Schüler zum Applikationsentwickler.</p>
@@ -86,7 +86,7 @@ export default function Ausbildung() {
 
             <hr className="border-secondary" />
 
-            <div className="container py-5">
+            <div className="container py-5 pb-3">
                 <p className="mono text-accent mb-4">// Werdegang</p>
                 <div className="border-start border-secondary ps-4">
                     {timeline.map((item, i) => (
