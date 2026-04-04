@@ -10,7 +10,7 @@ export default function Portfolio() {
             title="Portfolio Website"
             description="Meine persönliche Portfolio-Website auf der ich meine Projekte und meinen Ausbildungsweg präsentiere."
             technologies={["React", "Vite", "JavaScript", "Bootstrap", "React Router", "GitHub Pages"]}
-            images={[homepageImg, persprojekteImg, schulprojekteImg, ausbildungImg]}
+            //images={[homepageImg, persprojekteImg, schulprojekteImg, ausbildungImg]}
             githubLink="https://github.com/Laurens-Hertzer/Portfolio"
             liveLink="https://laurens-hertzer.github.io/Portfolio"
             backLink="/persProjekte"
