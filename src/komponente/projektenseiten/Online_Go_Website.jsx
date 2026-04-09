@@ -1,7 +1,7 @@
 import Projekt from '../Projekt.jsx';
-import indexImg from "../../assets/screenshots/index.png";
-import lobbyImg from "../../assets/screenshots/lobby.png";
-import gameImg from "../../assets/screenshots/game.png";
+import indexImg from "../../assets/screenshots/index_onlineGo.png";
+import lobbyImg from "../../assets/screenshots/lobby_onlineGo.png";
+import gameImg from "../../assets/screenshots/game_onlineGo.png";
 
 export default function OnlineGoWebsite() {
     return (

@@ -1,5 +1,5 @@
 import Projekt from '../Projekt.jsx';
-import gitImg from "../../assets/screenshots/git_tree.png"
+import gitImg from "../../assets/screenshots/git-tree_gitTrainingRepo.png"
 
 export default function Git_training_repo() {
     return (
