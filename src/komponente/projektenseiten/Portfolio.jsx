@@ -1,16 +1,17 @@
 import Projekt from '../Projekt.jsx';
-//import homepageImg from "../../assets/homepage.png";
-//import persprojekteImg from "../../assets/persprojekte.png";
-//import schulprojekteImg from "../../assets/schulprojekte.png";
-//import ausbildungImg from "../../assets/ausbildung.png";
+import homepageImg from "/src/assets/screenshots/index_portfolio.png";
+import persprojekteImg from "/src/assets/screenshots/persProjekte_portfolio.png";
+import schulprojekteImg from "/src/assets/screenshots/schulProjekte_portfolio.png";
+import ausbildungImg from "/src/assets/screenshots/ausbildung_portfolio.png";
 
 export default function Portfolio() {
     return (
         <Projekt
+            contain
             title="Portfolio Website"
             description="Meine persönliche Portfolio-Website auf der ich meine Projekte und meinen Ausbildungsweg präsentiere."
             technologies={["React", "Vite", "JavaScript", "Bootstrap", "React Router", "GitHub Pages"]}
-            //images={[homepageImg, persprojekteImg, schulprojekteImg, ausbildungImg]}
+            images={[homepageImg, ausbildungImg, persprojekteImg, schulprojekteImg]}
             githubLink="https://github.com/Laurens-Hertzer/Portfolio"
             liveLink="https://laurens-hertzer.github.io/Portfolio"
             backLink="/persProjekte"
