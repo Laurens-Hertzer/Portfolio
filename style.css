@@ -1,13 +1,21 @@
-/* Standart (dunkel) */
+/* Part Light/Dark Mode CSS */
+/* Standard (dunkel) */
 :root {
     --bg: #09090f;
     --text: #ffffff;
 }
 
-/* heller Modus (body wird gewechselt) */
+/* Heller Modus (body wird gewechselt) */
 body.light-mode {
     --bg: #f4f6f8;
     --text: #0d1117;
+}
+
+/* Globales Reset wegen Voreinstellungen Browser */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Global Body und wie er sich anpasst */
@@ -15,6 +23,43 @@ body {
     background-color: var(--bg);
     color: var(--text);
     font-family: sans-serif;
-    /* transition macht das Umschalten der Farben schön weich */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* keine Scrollbalken durch das Canvas */
+    /* transition für keine schlagartige Farbenänderung */
     transition: background-color 0.3s, color 0.3s; 
+}
+
+/* Part Canvas (von codepen, nicht meiner) */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Der Hintergrund ist hier transparent, damit die body-Farbe durchscheint */
+}
+
+/* Content Container für sauberes Layout */
+.content {
+    text-align: center;
+    z-index: 1; /* Damit der Text über dem Canvas liegt */
+}
+
+h1 {
+    letter-spacing: 2px;
+    text-shadow: 1px 1px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--text);
+    color: var(--bg);
+    transition: background-color 0.3s, color 0.3s;
 }
