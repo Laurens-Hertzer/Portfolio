@@ -1,85 +1,135 @@
-/* Standart (dunkel) */
+/* =========================================================
+   Deine Variablen & Theme-Logik (unverändert)
+   ========================================================= */
+
+/* Standard (dunkel) */
 :root {
     --bg: #09090f;
     --text: #ffffff;
 }
 
-/* heller Modus (body wird gewechselt) */
+/* Heller Modus */
 body.light-mode {
     --bg: #f4f6f8;
     --text: #0d1117;
 }
 
-/* Global Body und wie er sich anpasst */
+/* Global Body */
 body {
-    margin: 0;
     background-color: var(--bg);
     color: var(--text);
     font-family: sans-serif;
-    /* transition macht das Umschalten der Farben schön weich */
     transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
 }
 
-/* ---- reset ---- */
+/*
+Dieser Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
+diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
+für den Sterne/Partikel Hintergrund.
+ */
 
-/*body {
-  margin: 0;
-  font:normal 75% Arial, Helvetica, sans-serif;
-}*/
-
-canvas {
-    display: block;
-    /* vertical-align has no effect on block-level elements; removed to avoid ignored property */
-}
-
-/* ---- particles.js container ---- */
-
-#particles-js {
+/* --- _main-bg.scss --- */
+.main-bg {
+    height: 100vh;
     position: fixed;
-    inset: 0;
-    z-index: -1;
+    top: 0;
     width: 100%;
-    height: 100%;
-    background-color: #09090f;
-    /*background-image: url("");*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
+    background-color: var(--bg);
+    transition: background-color 0.3s;
+    z-index: 0;
 }
 
-/* ---- stats.js ---- */
-
-.count-particles {
-    background: #000022;
+/* --- _hero.scss: .canvas --- */
+.canvas {
     position: absolute;
-    top: 48px;
+    top: 0;
+    right: 0;
     left: 0;
-    width: 80px;
-    color: #13E8E9;
-    font-size: .8em;
-    text-align: left;
-    text-indent: 4px;
-    line-height: 14px;
-    padding-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}
-
-.js-count-particles {
-    font-size: 1.1em;
-}
-
-#stats,
-.count-particles {
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-#stats {
-    border-radius: 3px 3px 0 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent; /* transparent damit .main-bg durchscheint */
     overflow: hidden;
 }
 
-.count-particles {
-    border-radius: 0 0 3px 3px;
+/* --- _hero.scss: .hero --- */
+.hero {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    z-index: 1; /* über .main-bg */
 }
+
+/* --- _hero.scss: .connecting-dots (Hero-Canvas) --- */
+.connecting-dots {
+    height: 100%;
+    width: 100%;
+}
+
+/* --- Ben's bg canvas --- */
+.canvas-2 {
+    height: 100%;
+    width: 100%;
+}
+
+/* =========================================================
+   Dein Content im Hero (über den Partikeln)
+   ========================================================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* über beiden Canvas-Ebenen */
+    align-self: center;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    font-weight: 300;
+    color: var(--text);
+    margin: 0;
+}
+
+#theme-toggle {
+    padding: 0.8rem 2.4rem;
+    background-color: transparent;
+    border: 2px solid rgb(255, 77, 90);
+    border-radius: 2px;
+    color: rgb(255, 77, 90);
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#theme-toggle:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   Rest der Seite (scrollbar unter dem Hero)
+   ========================================================= */
+
+.page-content {
+    position: relative;
+    z-index: 1;
+    background-color: var(--bg);
+    transition: background-color 0.3s;
+    padding: 6rem 2rem;
+    min-height: 50vh;
+}
+
+.page-content h2 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+/* Ende des kopierten Code von Ben Scott*/

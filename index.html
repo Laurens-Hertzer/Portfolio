@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js" defer></script>
 </head>
-
 <body>
 
-    <!-- particles.js container -->
-    <div id="particles-js"></div>
+<!-- Ben's background canvas (fixed, behind everything) -->
+<div class="main-bg">
+    <div class="canvas">
+        <canvas class="canvas-2"></canvas>
+    </div>
+</div>
 
-    <!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+<!-- Ben's hero canvas (fullscreen hero section) -->
+<div class="hero" id="hero">
+    <div class="canvas">
+        <canvas class="connecting-dots"></canvas>
+    </div>
+    <!-- Your content sits here, on top of the particles -->
+    <div class="hero-content">
+        <h1>Sasha</h1>
+        <button id="theme-toggle">Design wechseln</button>
+    </div>
+</div>
 
-    <h1>Sasha</h1>
-
-    <button id="theme-toggle">Design wechseln</button>
+<!-- The rest of your portfolio goes below -->
+<main class="page-content">
+    <!-- Platzhalter – füge deine Sektionen hier ein -->
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>Hier kommt dein Inhalt.</p>
+    </section>
+</main>
 
 </body>
-
 </html>
