@@ -9,25 +9,28 @@
 </head>
 <body>
 
-<!-- Hintergrund canvas -->
+<!-- Ben's background canvas (fixed, behind everything) -->
 <div class="main-bg">
     <div class="canvas">
         <canvas class="canvas-2"></canvas>
     </div>
 </div>
 
-<!-- canvas -->
+<!-- Ben's hero canvas (fullscreen hero section) -->
 <div class="hero" id="hero">
     <div class="canvas">
         <canvas class="connecting-dots"></canvas>
     </div>
-    <div class="top-tab">
+    <!-- Your content sits here, on top of the particles -->
+    <div class="hero-content">
+        <h1>Hallo, ich heisse Laurens</h1>
+        <h1>Ich baue, deploye und betreibe</h1>
         <button id="theme-toggle">Design wechseln</button>
     </div>
-    <!-- Canvas Inhalt -->
-    <div class="hero-content">
-        <h1>Guten Tag, mein Name ist Laurens</h1>
-    </div>
+</div>
+
+<div class="tabs" id="tabs">
+
 </div>
 
 <!-- The rest of your portfolio goes below -->
@@ -37,7 +40,14 @@
         <h2>Über mich</h2>
         <p>Hier kommt dein Inhalt.</p>
     </section>
+    <section id="projects">
+        <h2>Projekte</h2>
+    </section>
 </main>
+
+<div class="footer">
+    footer
+</div>
 
 </body>
 </html>

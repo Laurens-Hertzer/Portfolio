@@ -25,7 +25,7 @@ body {
 }
 
 /*
-Dieser Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
+Dieser Teil des Codes (bis zum nächsten Kommentar) ist modifizierter  und bearbeiteter Code auf Basis von Ben Scott aus
 diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
 für den Sterne/Partikel Hintergrund.
  */
@@ -54,34 +54,27 @@ für den Sterne/Partikel Hintergrund.
     overflow: hidden;
 }
 
-/* --- _hero.scss: .hero --- */
 .hero {
     position: relative;
     display: flex;
     height: 100vh;
     width: 100%;
-    z-index: 1; /* über .main-bg */
+    z-index: 1;
 }
 
-/* --- _hero.scss: .connecting-dots (Hero-Canvas) --- */
 .connecting-dots {
     height: 100%;
     width: 100%;
 }
 
-/* --- Ben's bg canvas --- */
 .canvas-2 {
     height: 100%;
     width: 100%;
 }
 
-/* =========================================================
-   Dein Content im Hero (über den Partikeln)
-   ========================================================= */
-
 .hero-content {
     position: relative;
-    z-index: 2; /* über beiden Canvas-Ebenen */
+    z-index: 2;
     align-self: center;
     margin: 0 auto;
     text-align: center;
@@ -113,10 +106,6 @@ für den Sterne/Partikel Hintergrund.
 #theme-toggle:hover {
     transform: translateY(-2px);
 }
-
-/* =========================================================
-   Rest der Seite (scrollbar unter dem Hero)
-   ========================================================= */
 
 .page-content {
     position: relative;
