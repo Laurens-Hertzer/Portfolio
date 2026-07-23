@@ -329,3 +329,25 @@ window.onload = function () {
     canvasDotsBg();
     canvasDots();
 };
+
+// Aktiven Tab beim Scrollen aktualisieren
+(function () {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const sections = Array.from(tabLinks)
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+    function updateActiveTab() {
+        const scrollY = window.scrollY + window.innerHeight / 3;
+        let current = sections[0];
+        for (const section of sections) {
+            if (section.offsetTop <= scrollY) current = section;
+        }
+        tabLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    updateActiveTab();
+})();

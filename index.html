@@ -6,8 +6,31 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+
+<!-- Theme Toggle (fixed top-right) -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln">
+    <!-- Sonne Icon -->
+    <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <!-- Mond Icon -->
+    <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+</button>
 
 <!-- Ben's background canvas (fixed, behind everything) -->
 <div class="main-bg">
@@ -23,49 +46,43 @@
     </div>
     <!-- Your content sits here, on top of the particles -->
     <div class="hero-content">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln">
-            <!-- Sonne Icon -->
-            <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-
-            <!-- Mond Icon -->
-            <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
         <h1>Hallo, ich heisse Laurens</h1>
         <h1>Ich baue, deploye und betreibe</h1>
     </div>
 </div>
 
-<div class="tabs" id="tabs">
-
-</div>
+<nav class="tabs" id="tabs">
+    <a href="#about" class="tab-link active">Über mich</a>
+    <a href="#projects" class="tab-link">Projekte</a>
+    <a href="#contact" class="tab-link">Kontakt</a>
+</nav>
 
 <!-- The rest of your portfolio goes below -->
 <main class="page-content">
     <!-- Platzhalter – füge deine Sektionen hier ein -->
     <section id="about">
         <h2>Über mich</h2>
-        <p>Hier kommt dein Inhalt.</p>
+        <p>Hallo, mein Name ist Laurens, ich bin 17 Jahre alt, lebe in der Nähe von Zürich und bin in der Schweiz aufgewachsen. NAch erfolgreich
+            abgeschlossener Primar- und Sekundarschule gehe ich jetzt in die IMS an der Kantonsschule Büelrain (KWB) und
+            der Berufsbildungsschule Winterthur (BBW). Die IMS schliesse ich mit einem Applikationsentwickler EFZ und einer
+            Berufsmaturität Wirtschaft und Recht ab.</p>
+        <h3>Meine Kenntnisse</h3>
+
     </section>
     <section id="projects">
         <h2>Projekte</h2>
     </section>
+
 </main>
 
-<div class="footer">
-    footer
-</div>
+<footer>
+    <p>Laurens A. Hertzer</p>
+    <p><a href="mailto:lahdev.ch@gmail.com">lahdev.ch@gmail.com</a></p>
+    <a href="https://github.com/laurens-hertzer" target="_blank" rel="noopener noreferrer"
+       class="text-secondary">
+        <i class="bi bi-github fs-5"></i>
+    </a>
+</footer>
 
 </body>
 </html>
