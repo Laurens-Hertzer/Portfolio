@@ -1,6 +1,26 @@
-const button = document.getElementById('theme-toggle');
+/*const button = document.getElementById('theme-toggle');
 button.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
+});*/
+
+const toggleBtn = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme');
+
+// Beim Laden prüfen, ob vorher Light Mode aktiv war
+if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+}
+
+// Bei Klick umschalten
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    // Zustand speichern
+    if (document.body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
 });
 
 /*
@@ -143,12 +163,18 @@ const canvasDots = function () {
     mousePosition.x = window.innerWidth / 2;
     mousePosition.y = window.innerHeight / 2;
 
-    const draw = setInterval(createDots, 1000 / 30);
+    let animationId;
+    let lastTime = 0;
 
-    window.onresize = function () {
-        clearInterval(draw);
-        canvasDots();
-    };
+    function render(currentTime) {
+        // Nur alle ~33 Millisekunden zeichnen (~30 FPS)
+        if (currentTime - lastTime >= 33) {
+            createDots();
+            lastTime = currentTime;
+        }
+        animationId = requestAnimationFrame(render);
+    }
+    render(0);
 };
 
 /* Ende des kopierten Code von Ben Scott */
@@ -283,12 +309,18 @@ const canvasDotsBg = function () {
         mousePosition.y += top;
     };
 
-    const draw = setInterval(createDots, 1000 / 30);
+    let animationIdBg;
+    let lastTimeBg = 0;
 
-    window.onresize = function () {
-        clearInterval(draw);
-        canvasDotsBg();
-    };
+    function renderBg(currentTime) {
+        // Nur alle ~33 Millisekunden zeichnen (~30 FPS)
+        if (currentTime - lastTimeBg >= 33) {
+            createDots();
+            lastTimeBg = currentTime;
+        }
+        animationIdBg = requestAnimationFrame(renderBg);
+    }
+    renderBg(0);
 };
 
 /* Ende des kopierten Code von Ben Scott */

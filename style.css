@@ -6,12 +6,16 @@
 :root {
     --bg: #09090f;
     --text: #ffffff;
+    --toggle-bg: #1e1e2d;
+    --toggle-border: #2e2e42;
 }
 
 /* Heller Modus */
 body.light-mode {
     --bg: #f4f6f8;
     --text: #0d1117;
+    --toggle-bg: #e2e8f0;
+    --toggle-border: #cbd5e1;
 }
 
 /* Global Body */
@@ -23,6 +27,39 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.theme-toggle {
+    background: var(--toggle-bg);
+    border: 1px solid var(--toggle-border);
+    color: var(--text);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+.theme-toggle .icon {
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Standard (Dunkel): Zeige Sonne, verstecke Mond */
+.theme-toggle .sun-icon { display: block; }
+.theme-toggle .moon-icon { display: none; }
+
+/* Light-Mode: Zeige Mond, verstecke Sonne */
+body.light-mode .theme-toggle .sun-icon { display: none; }
+body.light-mode .theme-toggle .moon-icon { display: block; }
 
 /*
 Dieser Teil des Codes (bis zum nächsten Kommentar) ist modifizierter  und bearbeiteter Code auf Basis von Ben Scott aus
@@ -89,22 +126,6 @@ für den Sterne/Partikel Hintergrund.
     font-weight: 300;
     color: var(--text);
     margin: 0;
-}
-
-#theme-toggle {
-    padding: 0.8rem 2.4rem;
-    background-color: transparent;
-    border: 2px solid rgb(255, 77, 90);
-    border-radius: 2px;
-    color: rgb(255, 77, 90);
-    font-size: 1.4rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#theme-toggle:hover {
-    transform: translateY(-2px);
 }
 
 .page-content {
