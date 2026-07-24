@@ -23,6 +23,75 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
+//about
+const skills = [
+    {
+        category: "Programmiersprachen & Markup",
+        badges: [
+            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
+            "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
+            "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
+            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
+            "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
+        ],
+    },
+    {
+        category: "Frameworks & Libraries",
+        badges: [
+            "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
+            "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
+        ],
+    },
+    {
+        category: "Datenbanken",
+        badges: [
+            "https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white",
+            "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
+        ],
+    },
+    {
+        category: "Tools & Hardware",
+        badges: [
+            "https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white",
+            "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
+            "https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white",
+            "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
+            "https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white",
+        ],
+    },
+    {
+        category: "Sprachen (IRL)",
+        badges: [
+            "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
+            "https://img.shields.io/badge/Englisch-Fließend_(C1)-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
+        ],
+    },
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("skills-container");
+
+    if (!container) return;
+
+    skills.forEach(skill => {
+        const badgeImages = skill.badges
+            .map(url => `<img src="${url}" alt="" />`)
+            .join("");
+
+        const skillCard = `
+            <div class="skill-card">
+                <h6>${skill.category}</h6>
+                <div class="badge-list">
+                    ${badgeImages}
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML("beforeend", skillCard);
+    });
+});
+
 /*
 Dieser Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
 diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
@@ -56,17 +125,17 @@ const canvasDots = function () {
     let dots;
 
     if (windowSize > 1600) {
-        dots = { nb: 600, distance: 70, d_radius: 300, array: [] };
+        dots = {nb: 600, distance: 70, d_radius: 300, array: []};
     } else if (windowSize > 1300) {
-        dots = { nb: 575, distance: 60, d_radius: 280, array: [] };
+        dots = {nb: 575, distance: 60, d_radius: 280, array: []};
     } else if (windowSize > 1100) {
-        dots = { nb: 500, distance: 55, d_radius: 250, array: [] };
+        dots = {nb: 500, distance: 55, d_radius: 250, array: []};
     } else if (windowSize > 800) {
-        dots = { nb: 300, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 300, distance: 0, d_radius: 0, array: []};
     } else if (windowSize > 600) {
-        dots = { nb: 200, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 200, distance: 0, d_radius: 0, array: []};
     } else {
-        dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 100, distance: 0, d_radius: 0, array: []};
     }
 
     function Dot() {
@@ -157,7 +226,8 @@ const canvasDots = function () {
         try {
             dots.array[0].x = parameter.clientX;
             dots.array[0].y = parameter.clientY;
-        } catch {}
+        } catch {
+        }
     };
 
     mousePosition.x = window.innerWidth / 2;
@@ -174,6 +244,7 @@ const canvasDots = function () {
         }
         animationId = requestAnimationFrame(render);
     }
+
     render(0);
 };
 
@@ -211,13 +282,13 @@ const canvasDotsBg = function () {
     let dots;
 
     if (windowSize > 1600) {
-        dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 100, distance: 0, d_radius: 0, array: []};
     } else if (windowSize > 1300) {
-        dots = { nb: 75, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 75, distance: 0, d_radius: 0, array: []};
     } else if (windowSize > 1100) {
-        dots = { nb: 50, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 50, distance: 0, d_radius: 0, array: []};
     } else {
-        dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
+        dots = {nb: 1, distance: 0, d_radius: 0, array: []};
         ctx.globalAlpha = 0;
     }
 
@@ -320,6 +391,7 @@ const canvasDotsBg = function () {
         }
         animationIdBg = requestAnimationFrame(renderBg);
     }
+
     renderBg(0);
 };
 
@@ -348,6 +420,6 @@ window.onload = function () {
         });
     }
 
-    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    window.addEventListener('scroll', updateActiveTab, {passive: true});
     updateActiveTab();
 })();

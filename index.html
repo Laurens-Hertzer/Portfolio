@@ -62,17 +62,74 @@
     <!-- Platzhalter – füge deine Sektionen hier ein -->
     <section id="about">
         <h2>Über mich</h2>
-        <p>Hallo, mein Name ist Laurens, ich bin 17 Jahre alt, lebe in der Nähe von Zürich und bin in der Schweiz aufgewachsen. NAch erfolgreich
+        <p>Hallo, mein Name ist Laurens, ich bin 17 Jahre alt, lebe in der Nähe von Zürich und bin in der Schweiz
+            aufgewachsen. NAch erfolgreich
             abgeschlossener Primar- und Sekundarschule gehe ich jetzt in die IMS an der Kantonsschule Büelrain (KWB) und
-            der Berufsbildungsschule Winterthur (BBW). Die IMS schliesse ich mit einem Applikationsentwickler EFZ und einer
+            der Berufsbildungsschule Winterthur (BBW). Die IMS schliesse ich mit einem Applikationsentwickler EFZ und
+            einer
             Berufsmaturität Wirtschaft und Recht ab.</p>
         <h3>Meine Kenntnisse</h3>
+        <div class="skills-wrapper">
+            <p class="mono text-accent"></p>
 
-    </section>
-    <section id="projects">
-        <h2>Projekte</h2>
-    </section>
+            <!-- Hier fügt JS die Skills ein -->
+            <div id="skills-container" class="skills-grid"></div>
+        </div>
 
+        <section id="projects">
+            <h2>Projekte</h2>
+            <p class="mono text-accent mb-4">// Ausgewählte Arbeiten</p>
+
+            <div class="projects-grid">
+
+                <!-- Projekt 1 -->
+                <article class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="dein-vorschaubild.jpg" alt="Projekt Vorschau"/>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Portfolio Webseite</h3>
+                        <p class="project-description">
+                            Eine moderne, responsive Portfolio-Webseite gebaut mit Vanilla JS, HTML5 und
+                            benutzerdefiniertem CSS Grid.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS Grid</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn primary">Live Demo</a>
+                            <a href="#" target="_blank" class="project-btn">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projekt 2 -->
+                <article class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="dein-vorschaubild2.jpg" alt="Projekt Vorschau"/>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Spring Boot REST API</h3>
+                        <p class="project-description">
+                            Backend-Service zur Verwaltung von Benutzerdaten mit Authentifizierung und
+                            MongoDB-Anbindung.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Spring Boot</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn">GitHub Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </section>
 </main>
 
 <footer>
