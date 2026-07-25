@@ -382,31 +382,37 @@ window.onload = function () {
     canvasDots();
 };
 
-// 1. Alle Tab-Links holen
 const tabLinks = document.querySelectorAll('.tab-link');
 
-// 2. Beim Scrollen ausführen
-window.onscroll = function () {
-    let aktiverAbschnitt = '';
-
-    // Prüfen, bei welchem Abschnitt wir gerade vorbeiscrollen
-    tabLinks.forEach(link => {
-        const zielId = link.getAttribute('href');
-        const abschnitt = document.querySelector(zielId);
-
-        // Ist die Scroll-Position weiter unten als der Anfang des Abschnitts?
-        // (100px Puffer, damit der Wechsel kurz vor dem Abschnitt passiert)
-        if (abschnitt && window.scrollY >= (abschnitt.offsetTop - 100)) {
-            aktiverAbschnitt = zielId;
-        }
-    });
-
-    // 3. Klasse 'active' verteilen
-    tabLinks.forEach(link => {
-        if (link.getAttribute('href') === aktiverAbschnitt) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+// Observer konfigurieren
+const observerOptions = {
+    root: null,
+    // -20% oben/unten bewirkt, dass der Abschnitt in der Mitte des Bildschirms aktiv wird
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
 };
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = '#' + entry.target.id;
+
+            tabLinks.forEach(link => {
+                if (link.getAttribute('href') === id) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+// Alle verlinkten Abschnitte beobachten
+tabLinks.forEach(link => {
+    const zielId = link.getAttribute('href');
+    if (zielId && zielId.startsWith('#')) {
+        const abschnitt = document.querySelector(zielId);
+        if (abschnitt) observer.observe(abschnitt);
+    }
+});
