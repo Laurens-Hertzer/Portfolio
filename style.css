@@ -73,24 +73,55 @@ body.light-mode .moon-icon { display: block; }
 .connecting-dots, .canvas-2 { height: 100%; width: 100%; }
 
 /* Hero */
+/* --- Hero-Bereich (Responsive) --- */
 .hero {
     position: relative;
     display: flex;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* 100dvh verhindert Layout-Sprüngen durch Ein-/Ausblenden der Handy-Adressleiste */
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0 1.5rem; /* Sicherheitsabstand zu den Bildschirmrändern auf Handys */
     z-index: 1;
 }
+
 .hero-content {
     position: relative;
     z-index: 2;
-    align-self: center;
-    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    max-width: 850px;
+    width: 100%;
 }
-.hero-content h1 { font-size: 6rem; font-weight: 300; margin: 0; }
+
+/* Fluid Typography: font-size: clamp(MIN, BEVORZUGT, MAX) */
+.hero-content h1 {
+    /* Skaliert stufenlos: Auf kleinen Handys ~2.2rem, auf Desktop bis zu 4.8rem */
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.15;
+    word-break: break-word; /* Schützt vor Überlaufen bei sehr kleinen Screens */
+}
+
+.hero-subtitle {
+    /* Skaliert auf Handys auf ~1.1rem, auf Desktop auf 1.75rem */
+    font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+    font-weight: 300;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.45;
+    max-width: 650px;
+}
+
+.hero-subtitle span {
+    color: var(--accent);
+    font-weight: 400;
+}
 
 /* Tabs */
 .tabs {
