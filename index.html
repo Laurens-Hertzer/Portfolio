@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- Theme Toggle (fixed top-right) -->
 <button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln">
     <!-- Sonne Icon -->
     <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -33,14 +32,12 @@
     </svg>
 </button>
 
-<!-- Ben's background canvas (fixed, behind everything) -->
 <div class="main-bg">
     <div class="canvas">
         <canvas class="canvas-2"></canvas>
     </div>
 </div>
 
-<!-- Ben's hero canvas (fullscreen hero section) -->
 <div class="hero" id="hero">
     <div class="canvas">
         <canvas class="connecting-dots"></canvas>
@@ -49,7 +46,7 @@
     <div class="hero-content">
         <h1>Hallo, ich heisse Laurens</h1>
         <p class="hero-subtitle">
-            Ich baue, deploye und betreibe <span>skalierbare Webanwendungen</span>.
+            Code Build <span>Deploy</span>
         </p>
     </div>
 </div>
@@ -60,9 +57,7 @@
     <a href="#contact" class="tab-link">Kontakt</a>
 </nav>
 
-<!-- The rest of your portfolio goes below -->
 <main class="page-content">
-    <!-- Platzhalter – füge deine Sektionen hier ein -->
     <section id="about">
         <h2>Über mich</h2>
         <p>Hallo, mein Name ist Laurens, ich bin 17 Jahre alt, lebe in der Nähe von Zürich und bin in der Schweiz
@@ -74,8 +69,7 @@
         <h3>Meine Kenntnisse</h3>
         <div class="skills-wrapper">
             <p class="mono text-accent"></p>
-
-            <!-- Hier fügt JS die Skills ein -->
+            <!-- Spot für JS zum Einfügen -->
             <div id="skills-container" class="skills-grid"></div>
         </div>
 
@@ -91,7 +85,8 @@
                         <h3 class="project-title">System_Overview</h3>
                         <p class="project-description">
                             Ein Terminaltool dafür entwickelt, um sich das System von sich selber durch das Terminal
-                            überwachen und anpassen zu können. Es ist eher für den Gebrauch an Servern aber auch persönlichen Geräten
+                            überwachen und anpassen zu können. Es ist eher für den Gebrauch an Servern aber auch
+                            persönlichen Geräten
                             die für das Development benutzt werden.
                         </p>
                         <div class="project-tags">
@@ -180,10 +175,7 @@
     <section id="contact">
         <h2>Kontakt</h2>
         Gefällt Ihnen was Sie sehen, dann melden Sie sich doch bei mir.
-        <!-- EmailJS SDK im Head oder vor dem schließenden body-Tag einbinden -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-        <!-- Das Kontaktformular -->
         <form id="contact-form">
             <input type="text" name="name" placeholder="Dein Name" required>
             <input type="email" name="from_email" placeholder="Deine E-Mail" required>
@@ -191,8 +183,6 @@
 
             <button type="submit" id="submit-btn">Senden</button>
         </form>
-
-        <!-- Statusmeldungen für das Feedback -->
         <p id="form-status" style="display: none;"></p>
     </section>
 </main>

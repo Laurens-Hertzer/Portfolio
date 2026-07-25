@@ -262,3 +262,7 @@ body.light-mode .moon-icon { display: block; }
 footer                     { position: relative; z-index: 2; text-align: center; padding: 20px; background: var(--card); color: var(--text); }
 footer a, footer a:visited { color: var(--text); text-decoration: none; transition: color 0.2s; }
 footer a:hover             { color: var(--accent); }
+
+/* Kontakt Form */
+
+.contact-form         { display: flex; flex-direction: column; flex-grow: 1; gap: 1rem; }
