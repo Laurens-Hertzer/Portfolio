@@ -382,37 +382,89 @@ window.onload = function () {
     canvasDots();
 };
 
-const tabLinks = document.querySelectorAll('.tab-link');
+document.addEventListener('DOMContentLoaded', () => {
+    const tabLinks = document.querySelectorAll('.tab-link');
 
-// Observer konfigurieren
-const observerOptions = {
-    root: null,
-    // -20% oben/unten bewirkt, dass der Abschnitt in der Mitte des Bildschirms aktiv wird
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = '#' + entry.target.id;
-
-            tabLinks.forEach(link => {
-                if (link.getAttribute('href') === id) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
+    // 1. Alle Abschnitte aus den Links ermitteln
+    const abschnitte = [];
+    tabLinks.forEach(link => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+            const el = document.querySelector(targetId);
+            if (el) abschnitte.push({ link, el });
         }
     });
-}, observerOptions);
 
-// Alle verlinkten Abschnitte beobachten
-tabLinks.forEach(link => {
-    const zielId = link.getAttribute('href');
-    if (zielId && zielId.startsWith('#')) {
-        const abschnitt = document.querySelector(zielId);
-        if (abschnitt) observer.observe(abschnitt);
+    // 2. Funktion zum Aktualisieren der aktiven Klasse
+    function updateActiveTab() {
+        let aktuellerLink = null;
+
+        abschnitte.forEach(({ link, el }) => {
+            const rect = el.getBoundingClientRect();
+            // Sobald die Oberkante des Abschnitts nahe am oberen Bildschirmrand ist (z. B. 150px Puffer)
+            if (rect.top <= 150) {
+                aktuellerLink = link;
+            }
+        });
+
+        // Falls wir ganz oben auf der Seite sind, den ersten Tab aktivieren
+        if (!aktuellerLink && abschnitte.length > 0 && window.scrollY < 100) {
+            aktuellerLink = abschnitte[0].link;
+        }
+
+        // Klasse 'active' zuweisen
+        tabLinks.forEach(link => {
+            if (link === aktuellerLink) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     }
+
+    // 3. Auf Scrollen auf der ganzen Seite UND in Scroll-Containern lauschen
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    document.addEventListener('scroll', updateActiveTab, { capture: true, passive: true });
+
+    // Initial einmal ausführen
+    updateActiveTab();
+});
+
+// 1. Initialisiere EmailJS mit deinem Public Key
+(function() {
+    emailjs.init("RAb5Ve4YwHU0kesQO");
+})();
+
+const contactForm = document.getElementById('contact-form');
+const statusText = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Verhindert das Neuladen der Seite
+
+    // Button deaktivieren & Feedback geben
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Wird gesendet...";
+
+    // Die Parameter (Service ID, Template ID, Formular-Element)
+    emailjs.sendForm('service_w46jhom', 'template_gid7bum', this)
+        .then(function() {
+            // Erfolg!
+            statusText.style.display = "block";
+            statusText.style.color = "green";
+            statusText.innerText = "Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.";
+
+            contactForm.reset(); // Formular zurücksetzen
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Senden";
+        }, function(error) {
+            // Fehler!
+            statusText.style.display = "block";
+            statusText.style.color = "red";
+            statusText.innerText = "Upps, da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.";
+
+            console.error('EmailJS Error:', error);
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Senden";
+        });
 });

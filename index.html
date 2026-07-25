@@ -178,7 +178,22 @@
         </section>
     </section>
     <section id="contact">
-        hallo
+        <h2>Kontakt</h2>
+        Gefällt Ihnen was Sie sehen, dann melden Sie sich doch bei mir.
+        <!-- EmailJS SDK im Head oder vor dem schließenden body-Tag einbinden -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+        <!-- Das Kontaktformular -->
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Dein Name" required>
+            <input type="email" name="from_email" placeholder="Deine E-Mail" required>
+            <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+
+            <button type="submit" id="submit-btn">Senden</button>
+        </form>
+
+        <!-- Statusmeldungen für das Feedback -->
+        <p id="form-status" style="display: none;"></p>
     </section>
 </main>
 
