@@ -1,26 +1,6 @@
-/*const button = document.getElementById('theme-toggle');
+const button = document.getElementById('theme-toggle');
 button.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
-});*/
-
-const toggleBtn = document.getElementById('theme-toggle');
-const savedTheme = localStorage.getItem('theme');
-
-// Beim Laden prüfen, ob vorher Light Mode aktiv war
-if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-}
-
-// Bei Klick umschalten
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-
-    // Zustand speichern
-    if (document.body.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
-    } else {
-        localStorage.setItem('theme', 'dark');
-    }
 });
 
 //about
