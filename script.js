@@ -63,7 +63,7 @@ const skills = [
         category: "Sprachen (IRL)",
         badges: [
             "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
-            "https://img.shields.io/badge/Englisch-Fließend_(C1)-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Englisch-Fließend_(C2)-007ec6?style=for-the-badge",
             "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
         ],
     },

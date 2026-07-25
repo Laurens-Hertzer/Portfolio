@@ -1,118 +1,84 @@
-/* =========================================================
-   Deine Variablen & Theme-Logik (unverändert)
-   ========================================================= */
-
-/* Standard (dunkel) */
 :root {
-    --bg: #09090f;
-    --text: #ffffff;
-    --toggle-bg: #1e1e2d;
-    --toggle-border: #2e2e42;
+    --bg:      #05100f;
+    --card:    #091a1f;
+    --border:  #0e2a31;
+    --text:    #e8f4f6;
+    --muted:   rgba(232,244,246,0.42);
+    --accent:  #4a9fad;
+    --acc-hov: #3a8a97;
+    --tag-bg:  #071318;
 }
 
-/* Heller Modus */
 body.light-mode {
-    --bg: #f4f6f8;
-    --text: #0d1117;
-    --toggle-bg: #e2e8f0;
-    --toggle-border: #cbd5e1;
+    --bg:      #e4ecee;
+    --card:    #d2dfe2;
+    --border:  #a8c0c5;
+    --text:    #0a1e22;
+    --muted:   rgba(10,30,34,0.45);
+    --accent:  #12363f;
+    --acc-hov: #0a2830;
+    --tag-bg:  #c0d4d8;
 }
 
-/* Global Body */
+* { box-sizing: border-box; }
+
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: sans-serif;
-    transition: background-color 0.3s, color 0.3s;
     margin: 0;
-    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    transition: background 0.3s, color 0.3s;
 }
 
+/* Theme Toggle */
 .theme-toggle {
     position: fixed;
     top: 1.25rem;
     right: 1.5rem;
     z-index: 100;
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
-    color: var(--text);
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    transition: background-color 0.3s, border-color 0.3s, transform 0.2s ease;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
+.theme-toggle:hover        { transform: scale(1.05); }
+.theme-toggle .icon        { width: 20px; height: 20px; }
+.theme-toggle .sun-icon    { display: block; }
+.theme-toggle .moon-icon   { display: none; }
+body.light-mode .sun-icon  { display: none; }
+body.light-mode .moon-icon { display: block; }
 
-.theme-toggle:hover {
-    transform: scale(1.05);
-}
-
-.theme-toggle .icon {
-    width: 20px;
-    height: 20px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Standard (Dunkel): Zeige Sonne, verstecke Mond */
-.theme-toggle .sun-icon { display: block; }
-.theme-toggle .moon-icon { display: none; }
-
-/* Light-Mode: Zeige Mond, verstecke Sonne */
-body.light-mode .theme-toggle .sun-icon { display: none; }
-body.light-mode .theme-toggle .moon-icon { display: block; }
-
-/*
-Dieser Teil des Codes (bis zum nächsten Kommentar) ist modifizierter  und bearbeiteter Code auf Basis von Ben Scott aus
-diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
-für den Sterne/Partikel Hintergrund.
- */
-
-/* --- _main-bg.scss --- */
+/* Canvas */
 .main-bg {
-    height: 100vh;
     position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--bg);
-    transition: background-color 0.3s;
+    inset: 0;
+    height: 100vh;
+    background: var(--bg);
+    transition: background 0.3s;
     z-index: 0;
 }
-
-/* --- _hero.scss: .canvas --- */
 .canvas {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    inset: 0;
     height: 100vh;
-    background-color: transparent; /* transparent damit .main-bg durchscheint */
     overflow: hidden;
 }
+.connecting-dots, .canvas-2 { height: 100%; width: 100%; }
 
+/* Hero */
 .hero {
     position: relative;
     display: flex;
     height: 100vh;
-    width: 100%;
     z-index: 1;
 }
-
-.connecting-dots {
-    height: 100%;
-    width: 100%;
-}
-
-.canvas-2 {
-    height: 100%;
-    width: 100%;
-}
-
 .hero-content {
     position: relative;
     z-index: 2;
@@ -124,27 +90,18 @@ für den Sterne/Partikel Hintergrund.
     align-items: center;
     gap: 1.5rem;
 }
+.hero-content h1 { font-size: 6rem; font-weight: 300; margin: 0; }
 
-.hero-content h1 {
-    font-size: 6rem;
-    font-weight: 300;
-    color: var(--text);
-    margin: 0;
-}
-
-/*tab*/
-
+/* Tabs */
 .tabs {
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: center;
-    gap: 0;
-    background-color: var(--toggle-bg);
-    border-bottom: 1px solid var(--toggle-border);
-    transition: background-color 0.3s, border-color 0.3s;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
 }
-
 .tab-link {
     color: var(--text);
     text-decoration: none;
@@ -154,207 +111,110 @@ für den Sterne/Partikel Hintergrund.
     text-transform: uppercase;
     padding: 1rem 2rem;
     border-bottom: 2px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
     opacity: 0.6;
+    transition: opacity 0.2s, border-color 0.2s;
 }
+.tab-link:hover, .tab-link.active { opacity: 1; border-bottom-color: var(--accent); }
 
-.tab-link:hover,
-.tab-link.active {
-    opacity: 1;
-    border-bottom-color: rgb(81, 162, 233);
-    color: var(--text);
-}
-
+/* Page Content */
 .page-content {
     position: relative;
     z-index: 1;
-    background-color: var(--bg);
-    transition: background-color 0.3s;
-    padding: 6rem 2rem;
+    background: var(--bg);
+    transition: background 0.3s;
+    padding: 4rem 2rem;
     min-height: 50vh;
 }
+.page-content section { max-width: 900px; margin: 0 auto; padding: 3rem 0; }
+.page-content h2      { font-size: 2rem; font-weight: 400; margin: 0 0 0.25rem; }
+.section-sub          { color: var(--muted); margin: 0 0 2rem; }
+.section-divider      { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 
-.page-content h2 {
-    font-size: 3rem;
-    font-weight: 300;
-}
-
-/* Ende des kopierten Code von Ben Scott*/
-
-
-footer {
-    text-align: center;
-    padding: 20px 3px;
-    background-color: var(--toggle-bg);
-    color: var(--text);
-    position: relative;
-    z-index: 2;
-}
-
-/* Links im Footer übernehmen deine Theme-Textfarbe */
-footer a,
-footer a:visited {
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-/* Hover-Effekt (passend zu deinen blau/rosa Akzentfarben) */
-footer a:hover {
-    color: rgb(81, 162, 233);
-}
-
-/* Container für alle Skill-Karten (Grid Layout) */
+/* Skills */
 .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+.skill-card {
+    padding: 1.25rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.skill-card h4   { margin: 0 0 0.85rem; font-size: 0.85rem; font-weight: 600; }
+.badge-row       { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.badge-row img   { height: 24px; border-radius: 3px; }
+
+/* Timeline */
+.timeline {
+    border-left: 1px solid var(--border);
+    padding-left: 2rem;
+    margin: 1.5rem 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+.timeline-item             { position: relative; }
+.timeline-dot {
+    position: absolute;
+    left: -2.44rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border);
+}
+.timeline-dot.active       { background: var(--accent); box-shadow: 0 0 0 4px rgba(74,159,173,0.15); }
+.timeline-date             { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.2rem; }
+.timeline-title            { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.15rem; }
+.timeline-place            { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.6rem; }
+.timeline-badge {
+    font-size: 0.7rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+.timeline-details          { font-size: 0.85rem; color: var(--muted); margin: 0; padding-left: 1.1rem; line-height: 1.8; }
+
+/* Projekte */
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
-
-/* Einzelne Skill-Karte */
-.skill-card {
-    background-color: #2b3035; /* Deine Wunschfarbe für background-secondary */
-    border-radius: 8px;
-    padding: 1.5rem;
-}
-
-.skill-card h6 {
-    color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-/* Behälter für die Badges */
-.badge-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-/* Optional: Bildabstände & Darstellung */
-.badge-list img {
-    height: auto;
-    max-width: 100%;
-}
-
-/* --- PROJEKTE SECTION --- */
-
-/* Grid-Layout für die Projektkarten */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-/* Einzelne Projekt-Karte */
 .project-card {
-    background-color: #2b3035; /* Gleicher Dunkelton wie deine Skill-Cards */
-    border: 1px solid #3a3f45;
-    border-radius: 12px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-/* Hover-Effekt: Karte hebt sich leicht an */
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-color: #00c4cc; /* Accent-Farbe beim Drüberfahren */
-}
-
-/* Projekt-Vorschaubild */
-.project-img-wrapper {
-    width: 100%;
-    height: 200px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
     overflow: hidden;
-    background-color: #1a1d20;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
+.project-card:hover        { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.project-body              { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1; gap: 0.5rem; }
+.project-title             { font-size: 1.1rem; font-weight: 600; margin: 0; }
+.project-description       { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex-grow: 1; margin: 0; }
+.project-tags              { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.project-tag               { font-size: 0.72rem; font-family: ui-monospace, monospace; padding: 2px 8px; background: var(--tag-bg); color: var(--accent); border: 1px solid var(--border); border-radius: 3px; }
+.project-links             { display: flex; gap: 0.75rem; margin-top: 0.25rem; }
+.project-btn               { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; text-decoration: none; border-radius: 5px; background: var(--border); color: var(--text); transition: background 0.2s, color 0.2s; }
+.project-btn:hover         { background: var(--accent); color: var(--bg); }
+.project-btn.primary       { background: var(--accent); color: var(--bg); }
+.project-btn.primary:hover { background: var(--acc-hov); }
 
-.project-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+/* Dokumente */
+.dokumente-card            { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; }
+.dokumente-card h3         { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.4rem; }
+.dokumente-card p          { font-size: 0.85rem; color: var(--muted); margin: 0 0 1.25rem; }
+.btn-outline               { display: inline-block; font-size: 0.8rem; color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 0.45rem 1.1rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.btn-outline:hover         { border-color: var(--accent); color: var(--accent); }
 
-.project-card:hover .project-img-wrapper img {
-    transform: scale(1.05); /* Bild zoomt leicht beim Hovern */
-}
-
-/* Inhalt der Karte */
-.project-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Sorgt dafür, dass alle Karten gleich hoch sind */
-}
-
-.project-title {
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem 0;
-}
-
-.project-description {
-    color: #a0a6b1;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-/* Tag-Liste für verwendete Technologien (Tech-Stack) */
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-tag {
-    background-color: #1e2225;
-    color: #00c4cc; /* Accent-Farbe */
-    font-size: 0.8rem;
-    font-family: monospace;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 196, 204, 0.2);
-}
-
-/* Links / Buttons am Fuß der Karte */
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    background-color: #3a3f45;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.project-btn:hover {
-    background-color: #00c4cc;
-    color: #121212;
-}
-
-.project-btn.primary {
-    background-color: #00c4cc;
-    color: #121212;
-}
-
-.project-btn.primary:hover {
-    background-color: #00a0a6;
-}
+/* Footer */
+footer                     { position: relative; z-index: 2; text-align: center; padding: 20px; background: var(--card); color: var(--text); }
+footer a, footer a:visited { color: var(--text); text-decoration: none; transition: color 0.2s; }
+footer a:hover             { color: var(--accent); }
