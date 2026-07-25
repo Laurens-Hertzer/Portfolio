@@ -123,10 +123,12 @@ body.light-mode .moon-icon { display: block; }
     font-weight: 400;
 }
 
-/* Tabs */
+/* Tabs (Sticky Header) */
 .tabs {
-    position: relative;
-    z-index: 2;
+    position: sticky; /* Macht die Leiste haftend */
+    top: 0;           /* Bleibt ganz oben am Rand kleben */
+    z-index: 10;      /* Legt die Leiste über den Seiteninhalt beim Scrollen */
+
     display: flex;
     justify-content: center;
     background: var(--card);

@@ -402,24 +402,31 @@ window.onload = function () {
     canvasDots();
 };
 
-// Aktiven Tab beim Scrollen aktualisieren
-(function () {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const sections = Array.from(tabLinks)
-        .map(link => document.querySelector(link.getAttribute('href')))
-        .filter(Boolean);
+// 1. Alle Tab-Links holen
+const tabLinks = document.querySelectorAll('.tab-link');
 
-    function updateActiveTab() {
-        const scrollY = window.scrollY + window.innerHeight / 3;
-        let current = sections[0];
-        for (const section of sections) {
-            if (section.offsetTop <= scrollY) current = section;
+// 2. Beim Scrollen ausführen
+window.onscroll = function () {
+    let aktiverAbschnitt = '';
+
+    // Prüfen, bei welchem Abschnitt wir gerade vorbeiscrollen
+    tabLinks.forEach(link => {
+        const zielId = link.getAttribute('href');
+        const abschnitt = document.querySelector(zielId);
+
+        // Ist die Scroll-Position weiter unten als der Anfang des Abschnitts?
+        // (100px Puffer, damit der Wechsel kurz vor dem Abschnitt passiert)
+        if (abschnitt && window.scrollY >= (abschnitt.offsetTop - 100)) {
+            aktiverAbschnitt = zielId;
         }
-        tabLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
-        });
-    }
+    });
 
-    window.addEventListener('scroll', updateActiveTab, {passive: true});
-    updateActiveTab();
-})();
+    // 3. Klasse 'active' verteilen
+    tabLinks.forEach(link => {
+        if (link.getAttribute('href') === aktiverAbschnitt) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+};
