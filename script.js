@@ -40,11 +40,20 @@ const skills = [
         ],
     },
     {
-        category: "Sprachen (IRL)",
+        category: "Sprachen",
         badges: [
             "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
             "https://img.shields.io/badge/Englisch-Fließend_(C2)-007ec6?style=for-the-badge",
             "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
+        ],
+    },
+    {
+        category: "IDEs und Codeeditoren",
+        badges: [
+            "https://img.shields.io/badge/Visual_Studio_Code-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Intellij-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/WebStorm-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/RustRover-007ec6?style=for-the-badge",
         ],
     },
 ];
@@ -391,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = link.getAttribute('href');
         if (targetId && targetId.startsWith('#') && targetId.length > 1) {
             const el = document.querySelector(targetId);
-            if (el) abschnitte.push({ link, el });
+            if (el) abschnitte.push({link, el});
         }
     });
 
@@ -399,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateActiveTab() {
         let aktuellerLink = null;
 
-        abschnitte.forEach(({ link, el }) => {
+        abschnitte.forEach(({link, el}) => {
             const rect = el.getBoundingClientRect();
             // Sobald die Oberkante des Abschnitts nahe am oberen Bildschirmrand ist (z. B. 150px Puffer)
             if (rect.top <= 150) {
@@ -423,15 +432,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Auf Scrollen auf der ganzen Seite UND in Scroll-Containern lauschen
-    window.addEventListener('scroll', updateActiveTab, { passive: true });
-    document.addEventListener('scroll', updateActiveTab, { capture: true, passive: true });
+    window.addEventListener('scroll', updateActiveTab, {passive: true});
+    document.addEventListener('scroll', updateActiveTab, {capture: true, passive: true});
 
     // Initial einmal ausführen
     updateActiveTab();
 });
 
 // 1. Initialisiere EmailJS mit deinem Public Key
-(function() {
+(function () {
     emailjs.init("RAb5Ve4YwHU0kesQO");
 })();
 
@@ -439,7 +448,7 @@ const contactForm = document.getElementById('contact-form');
 const statusText = document.getElementById('form-status');
 const submitBtn = document.getElementById('submit-btn');
 
-contactForm.addEventListener('submit', function(event) {
+contactForm.addEventListener('submit', function (event) {
     event.preventDefault(); // Verhindert das Neuladen der Seite
 
     // Button deaktivieren & Feedback geben
@@ -448,7 +457,7 @@ contactForm.addEventListener('submit', function(event) {
 
     // Die Parameter (Service ID, Template ID, Formular-Element)
     emailjs.sendForm('service_w46jhom', 'template_gid7bum', this)
-        .then(function() {
+        .then(function () {
             // Erfolg!
             statusText.style.display = "block";
             statusText.style.color = "green";
@@ -457,7 +466,7 @@ contactForm.addEventListener('submit', function(event) {
             contactForm.reset(); // Formular zurücksetzen
             submitBtn.disabled = false;
             submitBtn.innerText = "Senden";
-        }, function(error) {
+        }, function (error) {
             // Fehler!
             statusText.style.display = "block";
             statusText.style.color = "red";
