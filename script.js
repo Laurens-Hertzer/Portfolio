@@ -391,51 +391,44 @@ window.onload = function () {
     canvasDots();
 };
 
+// Vorher (den ganzen alten Block ersetzen):
 document.addEventListener('DOMContentLoaded', () => {
     const tabLinks = document.querySelectorAll('.tab-link');
+    const NAVBAR_HEIGHT = 70;
 
-    // 1. Alle Abschnitte aus den Links ermitteln
     const abschnitte = [];
     tabLinks.forEach(link => {
         const targetId = link.getAttribute('href');
         if (targetId && targetId.startsWith('#') && targetId.length > 1) {
             const el = document.querySelector(targetId);
-            if (el) abschnitte.push({link, el});
+            if (el) abschnitte.push({ link, el });
         }
     });
 
-    // 2. Funktion zum Aktualisieren der aktiven Klasse
     function updateActiveTab() {
         let aktuellerLink = null;
 
-        abschnitte.forEach(({link, el}) => {
-            const rect = el.getBoundingClientRect();
-            // Sobald die Oberkante des Abschnitts nahe am oberen Bildschirmrand ist (z. B. 150px Puffer)
-            if (rect.top <= 150) {
+        // Von unten nach oben prüfen: der unterste Abschnitt,
+        // dessen Oberkante die Navbar schon passiert hat, ist aktiv
+        for (let i = abschnitte.length - 1; i >= 0; i--) {
+            const { link, el } = abschnitte[i];
+            if (el.getBoundingClientRect().top <= NAVBAR_HEIGHT + 10) {
                 aktuellerLink = link;
+                break;
             }
-        });
-
-        // Falls wir ganz oben auf der Seite sind, den ersten Tab aktivieren
-        if (!aktuellerLink && abschnitte.length > 0 && window.scrollY < 100) {
-            aktuellerLink = abschnitte[0].link;
         }
 
-        // Klasse 'active' zuweisen
+        // Ganz oben auf der Seite → ersten Tab aktivieren
+        if (!aktuellerLink && window.scrollY < 100) {
+            aktuellerLink = abschnitte[0]?.link;
+        }
+
         tabLinks.forEach(link => {
-            if (link === aktuellerLink) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
+            link.classList.toggle('active', link === aktuellerLink);
         });
     }
 
-    // 3. Auf Scrollen auf der ganzen Seite UND in Scroll-Containern lauschen
-    window.addEventListener('scroll', updateActiveTab, {passive: true});
-    document.addEventListener('scroll', updateActiveTab, {capture: true, passive: true});
-
-    // Initial einmal ausführen
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
     updateActiveTab();
 });
 

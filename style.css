@@ -139,6 +139,10 @@ body.light-mode .moon-icon { display: block; }
     transition: background 0.3s;
 }
 
+section[id] {
+    scroll-margin-top: 70px;
+}
+
 .tab-link {
     color: var(--text);
     text-decoration: none;
