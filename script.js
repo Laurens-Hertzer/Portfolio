@@ -394,7 +394,7 @@ window.onload = function () {
 // Vorher (den ganzen alten Block ersetzen):
 document.addEventListener('DOMContentLoaded', () => {
     const tabLinks = document.querySelectorAll('.tab-link');
-    const NAVBAR_HEIGHT = 70;
+    const NAVBAR_HEIGHT = window.innerHeight * 0.5;
 
     const abschnitte = [];
     tabLinks.forEach(link => {
@@ -406,21 +406,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateActiveTab() {
+        const NAVBAR_HEIGHT = window.innerHeight * 0.5;
         let aktuellerLink = null;
 
-        // Von unten nach oben prüfen: der unterste Abschnitt,
-        // dessen Oberkante die Navbar schon passiert hat, ist aktiv
-        for (let i = abschnitte.length - 1; i >= 0; i--) {
-            const { link, el } = abschnitte[i];
-            if (el.getBoundingClientRect().top <= NAVBAR_HEIGHT + 10) {
-                aktuellerLink = link;
-                break;
+        // Am Ende der Seite → letzten Tab immer aktivieren
+        const amEnde = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+        if (amEnde) {
+            aktuellerLink = abschnitte[abschnitte.length - 1]?.link;
+        } else {
+            for (let i = abschnitte.length - 1; i >= 0; i--) {
+                const { link, el } = abschnitte[i];
+                if (el.getBoundingClientRect().top <= NAVBAR_HEIGHT + 10) {
+                    aktuellerLink = link;
+                    break;
+                }
             }
-        }
 
-        // Ganz oben auf der Seite → ersten Tab aktivieren
-        if (!aktuellerLink && window.scrollY < 100) {
-            aktuellerLink = abschnitte[0]?.link;
+            if (!aktuellerLink && window.scrollY < 100) {
+                aktuellerLink = abschnitte[0]?.link;
+            }
         }
 
         tabLinks.forEach(link => {
