@@ -159,6 +159,14 @@ section[id] {
     transition: opacity 0.2s, border-color 0.2s;
 }
 
+@media (max-width: 600px) {
+    .tabs::after {
+        content: '';
+        width: 52px;
+        flex-shrink: 0;
+    }
+}
+
 .tab-link:hover, .tab-link.active {
     opacity: 1;
     border-bottom-color: var(--accent);
