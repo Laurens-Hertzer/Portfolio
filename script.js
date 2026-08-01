@@ -391,10 +391,9 @@ window.onload = function () {
     canvasDots();
 };
 
-// Vorher (den ganzen alten Block ersetzen):
 document.addEventListener('DOMContentLoaded', () => {
     const tabLinks = document.querySelectorAll('.tab-link');
-    const NAVBAR_HEIGHT = window.innerHeight * 0.5;
+    const NAVBAR_HEIGHT = 70;
 
     const abschnitte = [];
     tabLinks.forEach(link => {
@@ -405,31 +404,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function updateActiveTab() {
-        const NAVBAR_HEIGHT = window.innerHeight * 0.5;
-        let aktuellerLink = null;
+    function setActive(link) {
+        tabLinks.forEach(l => l.classList.remove('active'));
+        if (link) link.classList.add('active');
+    }
 
-        // Am Ende der Seite → letzten Tab immer aktivieren
+    function updateActiveTab() {
+        const SCHWELLE = window.innerHeight * 0.5; // ← statt NAVBAR_HEIGHT + 10
+
+        // Am Ende der Seite → letzten Tab aktivieren
         const amEnde = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
         if (amEnde) {
-            aktuellerLink = abschnitte[abschnitte.length - 1]?.link;
-        } else {
-            for (let i = abschnitte.length - 1; i >= 0; i--) {
-                const { link, el } = abschnitte[i];
-                if (el.getBoundingClientRect().top <= NAVBAR_HEIGHT + 10) {
-                    aktuellerLink = link;
-                    break;
-                }
-            }
-
-            if (!aktuellerLink && window.scrollY < 100) {
-                aktuellerLink = abschnitte[0]?.link;
-            }
+            setActive(abschnitte[abschnitte.length - 1]?.link);
+            return;
         }
 
-        tabLinks.forEach(link => {
-            link.classList.toggle('active', link === aktuellerLink);
-        });
+        // Im Hero-Bereich → kein Tab aktiv
+        const tabs = document.getElementById('tabs');
+        if (tabs.getBoundingClientRect().top > 0) {
+            setActive(null);
+            return;
+        }
+
+        // Von unten nach oben: erster Abschnitt dessen Oberkante die Schwelle passiert hat
+        let aktuellerLink = null;
+        for (let i = abschnitte.length - 1; i >= 0; i--) {
+            const { link, el } = abschnitte[i];
+            if (el.getBoundingClientRect().top <= SCHWELLE) {
+                aktuellerLink = link;
+                break;
+            }
+        }
+        setActive(aktuellerLink);
     }
 
     window.addEventListener('scroll', updateActiveTab, { passive: true });
