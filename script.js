@@ -449,7 +449,7 @@ contactForm.addEventListener('submit', function (event) {
     submitBtn.innerText = "Wird gesendet...";
 
     // Die Parameter (Service ID, Template ID, Formular-Element)
-    emailjs.sendForm('service_w46jhom', 'template_gid7bum', this)
+    emailjs.sendForm('service_7ms6voc', 'template_gid7bum', this)
         .then(function () {
             // Erfolg!
             statusText.style.display = "block";
