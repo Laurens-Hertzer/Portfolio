@@ -328,16 +328,6 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/*
-    mix-blend-mode: lighten blendet den weissen Hintergrund des Server-Bildes
-    mit dem dunklen Canvas zusammen, sodass nur das Gerät sichtbar bleibt
-*/
-.project-img-wrapper img[src*="server"] {
-    background: #fff;
-    padding: 6px;
-    mix-blend-mode: lighten;
-}
-
 .project-body {
     padding: 1.25rem 1.5rem;
     display: flex;
