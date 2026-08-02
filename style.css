@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+/*Variablen*/
 :root {
     --bg: #05100f;
     --card: #091a1f;
@@ -7,6 +10,8 @@
     --accent: #4a9fad;
     --acc-hov: #3a8a97;
     --tag-bg: #071318;
+    --font-head: 'Syne', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
 }
 
 body.light-mode {
@@ -20,6 +25,7 @@ body.light-mode {
     --tag-bg: #c0d4d8;
 }
 
+/*Reset*/
 * {
     box-sizing: border-box;
 }
@@ -28,11 +34,15 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: var(--font-body);
     transition: background 0.3s, color 0.3s;
 }
 
-/* Theme Toggle */
+h1, h2, h3, h4 {
+    font-family: var(--font-head);
+}
+
+/*Theme Toggle*/
 .theme-toggle {
     position: fixed;
     top: 8px;
@@ -77,7 +87,7 @@ body.light-mode .moon-icon {
     display: block;
 }
 
-/* Canvas */
+/*Canvas*/
 .main-bg {
     position: fixed;
     inset: 0;
@@ -94,24 +104,28 @@ body.light-mode .moon-icon {
     overflow: hidden;
 }
 
-.connecting-dots, .canvas-2 {
+.connecting-dots,
+.canvas-2 {
     position: absolute;
     inset: 0;
     height: 100%;
     width: 100%;
 }
 
-/* Hero */
-/* --- Hero-Bereich (Responsive) --- */
+/*Hero*/
+/*
+    min-height steht zweimal absichtlich:
+    100vh = Fallback für ältere Browser
+    100dvh = moderner Wert, der die mobile Adressleiste korrekt einrechnet
+*/
 .hero {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* 100dvh verhindert Layout-Sprüngen durch Ein-/Ausblenden der Handy-Adressleiste */
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 0 1.5rem; /* Sicherheitsabstand zu den Bildschirmrändern auf Handys */
+    padding: 0 1.5rem;
     z-index: 1;
 }
 
@@ -127,18 +141,19 @@ body.light-mode .moon-icon {
     width: 100%;
 }
 
-/* Fluid Typography: font-size: clamp(MIN, BEVORZUGT, MAX) */
+/*
+    clamp(MIN, BEVORZUGT, MAX) skaliert die Schriftgrösse stufenlos:
+    auf kleinen Handys ca. 2.2rem, auf grossen Screens bis 4.8rem
+*/
 .hero-content h1 {
-    /* Skaliert stufenlos: Auf kleinen Handys ~2.2rem, auf Desktop bis zu 4.8rem */
     font-size: clamp(2.2rem, 6vw, 4.8rem);
     font-weight: 300;
     margin: 0;
     line-height: 1.15;
-    word-break: break-word; /* Schützt vor Überlaufen bei sehr kleinen Screens */
+    word-break: break-word;
 }
 
 .hero-subtitle {
-    /* Skaliert auf Handys auf ~1.1rem, auf Desktop auf 1.75rem */
     font-size: clamp(1.1rem, 2.5vw, 1.75rem);
     font-weight: 300;
     color: var(--muted);
@@ -152,22 +167,21 @@ body.light-mode .moon-icon {
     font-weight: 400;
 }
 
-/* Tabs (Sticky Header) */
+/*Tabs */
 .tabs {
-    position: sticky; /* Macht die Leiste haftend */
-    top: 0; /* Bleibt ganz oben am Rand kleben */
-    z-index: 10; /* Legt die Leiste über den Seiteninhalt beim Scrollen */
-
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 56px;
-
     background: var(--card);
     border-bottom: 1px solid var(--border);
     transition: background 0.3s;
 }
 
+/* Verhindert dass Abschnitte beim Anklicken hinter der Tabs-Leiste verschwinden */
 section[id] {
     scroll-margin-top: 70px;
 }
@@ -175,6 +189,7 @@ section[id] {
 .tab-link {
     color: var(--text);
     text-decoration: none;
+    font-family: var(--font-head);
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -188,6 +203,12 @@ section[id] {
     transition: opacity 0.2s, border-color 0.2s;
 }
 
+.tab-link:hover, .tab-link.active {
+    opacity: 1;
+    border-bottom-color: var(--accent);
+}
+
+/* Platz damit der Theme-Toggle-Button die Tabs nicht überlappt */
 @media (max-width: 600px) {
     .tabs::after {
         content: '';
@@ -196,12 +217,7 @@ section[id] {
     }
 }
 
-.tab-link:hover, .tab-link.active {
-    opacity: 1;
-    border-bottom-color: var(--accent);
-}
-
-/* Page Content */
+/*Page Content*/
 .page-content {
     position: relative;
     z-index: 1;
@@ -223,7 +239,7 @@ section[id] {
     margin: 0 0 0.25rem;
 }
 
-/* Skills */
+/*Skills*/
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -248,7 +264,7 @@ section[id] {
     border-radius: 3px;
 }
 
-/* Projekte */
+/*Projekte*/
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -265,11 +281,16 @@ section[id] {
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Container für die Vorschaubilder */
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 .project-img-wrapper {
     width: 100%;
     height: 180px;
-    background: #02080a; /* Dunkler Hintergrund, der perfekt zum Theme passt */
+    background: #02080a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,24 +302,19 @@ section[id] {
 .project-img-wrapper img {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Bild wird nie abgeschnitten */
+    object-fit: contain;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Gibt den Screenshots einen schönen App-Card-Look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Spezial-Anpassung für den Server mit weißem Hintergrund */
+/*
+    mix-blend-mode: lighten blendet den weissen Hintergrund des Server-Bildes
+    mit dem dunklen Canvas zusammen, sodass nur das Gerät sichtbar bleibt
+*/
 .project-img-wrapper img[src*="server"] {
-    background: #ffffff;
+    background: #fff;
     padding: 6px;
     mix-blend-mode: lighten;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .project-body {
@@ -373,27 +389,7 @@ section[id] {
     background: var(--acc-hov);
 }
 
-/* Footer */
-footer {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 20px;
-    background: var(--card);
-    color: var(--text);
-}
-
-footer a, footer a:visited {
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-footer a:hover {
-    color: var(--accent);
-}
-
-/* Kontakt Form */
+/*Kontakt Form*/
 form {
     display: flex;
     flex-direction: column;
@@ -407,6 +403,7 @@ form {
     padding: 12px 16px;
     border-radius: 6px;
     font-size: 1rem;
+    font-family: var(--font-body);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -432,6 +429,7 @@ form button[type="submit"] {
     border: none;
     padding: 12px 20px;
     border-radius: 6px;
+    font-family: var(--font-head);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -439,4 +437,25 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
     background-color: var(--acc-hov);
+}
+
+/*Footer*/
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    background: var(--card);
+    color: var(--text);
+}
+
+footer a, footer a:visited {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+/*Damit die Links nicht violet sind*/
+footer a:hover {
+    color: var(--accent);
 }
