@@ -153,19 +153,19 @@ body.light-mode .moon-icon {
     word-break: break-word;
 }
 
-.hero-subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.75rem);
-    font-weight: 300;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.45;
-    max-width: 650px;
-}
+/*.hero-subtitle {*/
+/*    font-size: clamp(1.1rem, 2.5vw, 1.75rem);*/
+/*    font-weight: 300;*/
+/*    color: var(--muted);*/
+/*    margin: 0;*/
+/*    line-height: 1.45;*/
+/*    max-width: 650px;*/
+/*}*/
 
-.hero-subtitle span {
-    color: var(--accent);
-    font-weight: 400;
-}
+/*.hero-subtitle span {*/
+/*    color: var(--accent);*/
+/*    font-weight: 400;*/
+/*}*/
 
 /*Tabs */
 .tabs {
@@ -237,6 +237,27 @@ section[id] {
     font-size: 2rem;
     font-weight: 400;
     margin: 0 0 0.25rem;
+}
+
+/* Generelle Formatierung für flüssigen, lesbaren Text */
+p {
+    line-height: 1.65;          /* Gibt den Zeilen Platz zum Atmen */
+    margin-top: 0;
+    margin-bottom: 1.25rem;    /* Angenehmer Abstand zum nächsten Element */
+    font-size: 1rem;            /* Normale Schriftgrösse */
+}
+
+/* Mehr Abstand unter Hauptüberschriften */
+.page-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 1.25rem;        /* Vorher 0.25rem -> jetzt deutlich luftiger */
+}
+
+/* Abstände für Zwischenüberschriften (wie "Meine Kenntnisse") */
+.page-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 /*Skills*/
