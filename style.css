@@ -292,7 +292,7 @@ section[id] {
 .project-img-wrapper img[src*="server"] {
     background: #ffffff;
     padding: 6px;
-    mix-blend-mode: lighten; /* Verschmilzt das Weiß bei Bedarf sauber oder zeigt das Gerät ordentlich an */
+    mix-blend-mode: lighten;
 }
 
 .project-card:hover {

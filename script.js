@@ -3,86 +3,8 @@ button.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
 });
 
-//about
-const skills = [
-    {
-        category: "Programmiersprachen & Markup",
-        badges: [
-            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
-            "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
-            "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
-            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
-            "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
-        ],
-    },
-    {
-        category: "Frameworks & Libraries",
-        badges: [
-            "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
-            "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
-        ],
-    },
-    {
-        category: "Datenbanken",
-        badges: [
-            "https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white",
-            "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
-        ],
-    },
-    {
-        category: "Tools & Hardware",
-        badges: [
-            "https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white",
-            "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
-            "https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white",
-            "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
-            "https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white",
-        ],
-    },
-    {
-        category: "Sprachen",
-        badges: [
-            "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
-            "https://img.shields.io/badge/Englisch-Fließend_(C2)-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
-        ],
-    },
-    {
-        category: "IDEs und Codeeditoren",
-        badges: [
-            "https://img.shields.io/badge/Visual_Studio_Code-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/Intellij-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/WebStorm-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/RustRover-007ec6?style=for-the-badge",
-        ],
-    },
-];
-
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("skills-container");
-
-    if (!container) return;
-
-    skills.forEach(skill => {
-        const badgeImages = skill.badges
-            .map(url => `<img src="${url}" alt="" />`)
-            .join("");
-
-        const skillCard = `
-            <div class="skill-card">
-                <h6>${skill.category}</h6>
-                <div class="badge-list">
-                    ${badgeImages}
-                </div>
-            </div>
-        `;
-
-        container.insertAdjacentHTML("beforeend", skillCard);
-    });
-});
-
 /*
-Dieser Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
+Der nächste Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
 diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
 für den Sterne/Partikel Hintergrund.
 */
@@ -236,14 +158,6 @@ const canvasDots = function () {
     render(0);
 };
 
-/* Ende des kopierten Code von Ben Scott */
-
-/*
-Dieser Teil des Codes (bis zum nächsten Kommentar) ist Code von Ben Scott aus
-diesem Repo https://github.com/bscottnz/portfolio-site. Der Code ist zuständig
-für den Sterne/Partikel Hintergrund.
-*/
-
 const canvasDotsBg = function () {
     const canvas = document.querySelector('.canvas-2'),
         ctx = canvas.getContext('2d'),
@@ -392,6 +306,84 @@ window.onload = function () {
     canvasDots();
 };
 
+//about
+const skills = [
+    {
+        category: "Programmiersprachen & Markup",
+        badges: [
+            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
+            "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
+            "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
+            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
+            "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
+        ],
+    },
+    {
+        category: "Frameworks & Libraries",
+        badges: [
+            "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
+            "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
+        ],
+    },
+    {
+        category: "Datenbanken",
+        badges: [
+            "https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white",
+            "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
+        ],
+    },
+    {
+        category: "Tools & Hardware",
+        badges: [
+            "https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white",
+            "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
+            "https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white",
+            "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
+            "https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white",
+        ],
+    },
+    {
+        category: "Sprachen",
+        badges: [
+            "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
+            "https://img.shields.io/badge/Englisch-Fließend_(C2)-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
+        ],
+    },
+    {
+        category: "IDEs und Codeeditoren",
+        badges: [
+            "https://img.shields.io/badge/Visual_Studio_Code-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Intellij-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/WebStorm-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/RustRover-007ec6?style=for-the-badge",
+        ],
+    },
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("skills-container");
+
+    if (!container) return;
+
+    skills.forEach(skill => {
+        const badgeImages = skill.badges
+            .map(url => `<img src="${url}" alt="" />`)
+            .join("");
+
+        const skillCard = `
+            <div class="skill-card">
+                <h6>${skill.category}</h6>
+                <div class="badge-list">
+                    ${badgeImages}
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML("beforeend", skillCard);
+    });
+});
+
 let resizeTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -413,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = link.getAttribute('href');
         if (targetId && targetId.startsWith('#') && targetId.length > 1) {
             const el = document.querySelector(targetId);
-            if (el) abschnitte.push({ link, el });
+            if (el) abschnitte.push({link, el});
         }
     });
 
@@ -442,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Von unten nach oben: erster Abschnitt dessen Oberkante die Schwelle passiert hat
         let aktuellerLink = null;
         for (let i = abschnitte.length - 1; i >= 0; i--) {
-            const { link, el } = abschnitte[i];
+            const {link, el} = abschnitte[i];
             if (el.getBoundingClientRect().top <= SCHWELLE) {
                 aktuellerLink = link;
                 break;
@@ -451,11 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setActive(aktuellerLink);
     }
 
-    window.addEventListener('scroll', updateActiveTab, { passive: true });
+    window.addEventListener('scroll', updateActiveTab, {passive: true});
     updateActiveTab();
 });
 
-// 1. Initialisiere EmailJS mit deinem Public Key
+// emailjs
 (function () {
     emailjs.init("RAb5Ve4YwHU0kesQO");
 })();
@@ -465,28 +457,24 @@ const statusText = document.getElementById('form-status');
 const submitBtn = document.getElementById('submit-btn');
 
 contactForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Verhindert das Neuladen der Seite
+    event.preventDefault();
 
-    // Button deaktivieren & Feedback geben
     submitBtn.disabled = true;
     submitBtn.innerText = "Wird gesendet...";
 
-    // Die Parameter (Service ID, Template ID, Formular-Element)
     emailjs.sendForm('service_7ms6voc', 'template_gid7bum', this)
         .then(function () {
-            // Erfolg!
             statusText.style.display = "block";
             statusText.style.color = "green";
-            statusText.innerText = "Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.";
+            statusText.innerText = "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.";
 
             contactForm.reset(); // Formular zurücksetzen
             submitBtn.disabled = false;
             submitBtn.innerText = "Senden";
         }, function (error) {
-            // Fehler!
             statusText.style.display = "block";
             statusText.style.color = "red";
-            statusText.innerText = "Upps, da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.";
+            statusText.innerText = "Upps, da ist etwas schiefgelaufen. Bitte versuchen Sie es später erneut.";
 
             console.error('EmailJS Error:', error);
             submitBtn.disabled = false;
