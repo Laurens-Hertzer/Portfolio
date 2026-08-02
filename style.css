@@ -1,26 +1,28 @@
 :root {
-    --bg:      #05100f;
-    --card:    #091a1f;
-    --border:  #0e2a31;
-    --text:    #e8f4f6;
-    --muted:   rgba(232,244,246,0.42);
-    --accent:  #4a9fad;
+    --bg: #05100f;
+    --card: #091a1f;
+    --border: #0e2a31;
+    --text: #e8f4f6;
+    --muted: rgba(232, 244, 246, 0.42);
+    --accent: #4a9fad;
     --acc-hov: #3a8a97;
-    --tag-bg:  #071318;
+    --tag-bg: #071318;
 }
 
 body.light-mode {
-    --bg:      #e4ecee;
-    --card:    #d2dfe2;
-    --border:  #a8c0c5;
-    --text:    #0a1e22;
-    --muted:   rgba(10,30,34,0.45);
-    --accent:  #12363f;
+    --bg: #e4ecee;
+    --card: #d2dfe2;
+    --border: #a8c0c5;
+    --text: #0a1e22;
+    --muted: rgba(10, 30, 34, 0.45);
+    --accent: #12363f;
     --acc-hov: #0a2830;
-    --tag-bg:  #c0d4d8;
+    --tag-bg: #c0d4d8;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -48,12 +50,32 @@ body {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
-.theme-toggle:hover        { transform: scale(1.08); border-color: var(--accent); }
-.theme-toggle .icon        { width: 20px; height: 20px; }
-.theme-toggle .sun-icon    { display: block; }
-.theme-toggle .moon-icon   { display: none; }
-body.light-mode .sun-icon  { display: none; }
-body.light-mode .moon-icon { display: block; }
+
+.theme-toggle:hover {
+    transform: scale(1.08);
+    border-color: var(--accent);
+}
+
+.theme-toggle .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle .sun-icon {
+    display: block;
+}
+
+.theme-toggle .moon-icon {
+    display: none;
+}
+
+body.light-mode .sun-icon {
+    display: none;
+}
+
+body.light-mode .moon-icon {
+    display: block;
+}
 
 /* Canvas */
 .main-bg {
@@ -64,13 +86,20 @@ body.light-mode .moon-icon { display: block; }
     transition: background 0.3s;
     z-index: 0;
 }
+
 .canvas {
     position: absolute;
     inset: 0;
     height: 100vh;
     overflow: hidden;
 }
-.connecting-dots, .canvas-2 { height: 100%; width: 100%; }
+
+.connecting-dots, .canvas-2 {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+}
 
 /* Hero */
 /* --- Hero-Bereich (Responsive) --- */
@@ -126,8 +155,8 @@ body.light-mode .moon-icon { display: block; }
 /* Tabs (Sticky Header) */
 .tabs {
     position: sticky; /* Macht die Leiste haftend */
-    top: 0;           /* Bleibt ganz oben am Rand kleben */
-    z-index: 10;      /* Legt die Leiste über den Seiteninhalt beim Scrollen */
+    top: 0; /* Bleibt ganz oben am Rand kleben */
+    z-index: 10; /* Legt die Leiste über den Seiteninhalt beim Scrollen */
 
     display: flex;
     justify-content: center;
@@ -181,8 +210,18 @@ section[id] {
     padding: 4rem 2rem;
     min-height: 50vh;
 }
-.page-content section { max-width: 900px; margin: 0 auto; padding: 3rem 0; }
-.page-content h2      { font-size: 2rem; font-weight: 400; margin: 0 0 0.25rem; }
+
+.page-content section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.page-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 0.25rem;
+}
 
 /* Skills */
 .skills-grid {
@@ -190,14 +229,24 @@ section[id] {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
 }
+
 .skill-card {
     padding: 1.25rem 1.5rem;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
 }
-.skill-card h4   { margin: 0 0 0.85rem; font-size: 0.85rem; font-weight: 600; }
-.badge-row img   { height: 24px; border-radius: 3px; }
+
+.skill-card h4 {
+    margin: 0 0 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-list img {
+    height: 24px;
+    border-radius: 3px;
+}
 
 /* Projekte */
 .projects-grid {
@@ -205,6 +254,7 @@ section[id] {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
+
 .project-card {
     display: flex;
     flex-direction: column;
@@ -214,6 +264,7 @@ section[id] {
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
+
 /* Container für die Vorschaubilder */
 .project-img-wrapper {
     width: 100%;
@@ -243,26 +294,104 @@ section[id] {
     padding: 6px;
     mix-blend-mode: lighten; /* Verschmilzt das Weiß bei Bedarf sauber oder zeigt das Gerät ordentlich an */
 }
-.project-card:hover        { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-.project-body              { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1; gap: 0.5rem; }
-.project-title             { font-size: 1.1rem; font-weight: 600; margin: 0; }
-.project-description       { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex-grow: 1; margin: 0; }
-.project-tags              { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.project-tag               { font-size: 0.72rem; font-family: ui-monospace, monospace; padding: 2px 8px; background: var(--tag-bg); color: var(--accent); border: 1px solid var(--border); border-radius: 3px; }
-.project-links             { display: flex; gap: 0.75rem; margin-top: 0.25rem; }
-.project-btn               { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; font-size: 0.82rem; font-weight: 500; text-decoration: none; border-radius: 5px; background: var(--border); color: var(--text); transition: background 0.2s, color 0.2s; }
-.project-btn:hover         { background: var(--accent); color: var(--bg); }
-.project-btn.primary       { background: var(--accent); color: var(--bg); }
-.project-btn.primary:hover { background: var(--acc-hov); }
 
-/* Dokumente */
-.dokumente-card h3         { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.4rem; }
-.dokumente-card p          { font-size: 0.85rem; color: var(--muted); margin: 0 0 1.25rem; }
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.project-body {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.project-description {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.project-tag {
+    font-size: 0.72rem;
+    font-family: ui-monospace, monospace;
+    padding: 2px 8px;
+    background: var(--tag-bg);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 5px;
+    background: var(--border);
+    color: var(--text);
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.project-btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.project-btn.primary:hover {
+    background: var(--acc-hov);
+}
 
 /* Footer */
-footer                     { position: relative; z-index: 2; text-align: center; padding: 20px; background: var(--card); color: var(--text); }
-footer a, footer a:visited { color: var(--text); text-decoration: none; transition: color 0.2s; }
-footer a:hover             { color: var(--accent); }
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    background: var(--card);
+    color: var(--text);
+}
+
+footer a, footer a:visited {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
 
 /* Kontakt Form */
 form {
@@ -286,7 +415,7 @@ form {
     opacity: 1;
 }
 
-:is(input[type="text"], input[type="email"], input[type="password"], textarea):focus {
+:is(input[type="text"], input[type="email"], textarea):focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(74, 159, 173, 0.25);

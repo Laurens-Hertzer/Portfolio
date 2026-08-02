@@ -197,9 +197,10 @@ const canvasDots = function () {
 
     function createDots() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let dot;
         for (let i = 0; i < dots.nb; i++) {
             dots.array.push(new Dot());
-            var dot = dots.array[i];
+            dot = dots.array[i];
             dot.create();
         }
         dots.array[0].radius = 1.5;
@@ -222,16 +223,14 @@ const canvasDots = function () {
     mousePosition.x = window.innerWidth / 2;
     mousePosition.y = window.innerHeight / 2;
 
-    let animationId;
     let lastTime = 0;
 
     function render(currentTime) {
-        // Nur alle ~33 Millisekunden zeichnen (~30 FPS)
         if (currentTime - lastTime >= 33) {
             createDots();
             lastTime = currentTime;
         }
-        animationId = requestAnimationFrame(render);
+        animationIdDots = requestAnimationFrame(render);
     }
 
     render(0);
@@ -352,9 +351,10 @@ const canvasDotsBg = function () {
 
     function createDots() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let dot;
         for (let i = 0; i < dots.nb; i++) {
             dots.array.push(new Dot());
-            var dot = dots.array[i];
+            dot = dots.array[i];
             dot.create();
         }
         dots.array[0].radius = 1.5;
@@ -369,11 +369,9 @@ const canvasDotsBg = function () {
         mousePosition.y += top;
     };
 
-    let animationIdBg;
     let lastTimeBg = 0;
 
     function renderBg(currentTime) {
-        // Nur alle ~33 Millisekunden zeichnen (~30 FPS)
         if (currentTime - lastTimeBg >= 33) {
             createDots();
             lastTimeBg = currentTime;
@@ -386,14 +384,29 @@ const canvasDotsBg = function () {
 
 /* Ende des kopierten Code von Ben Scott */
 
+let animationIdDots = null;
+let animationIdBg = null;
+
 window.onload = function () {
     canvasDotsBg();
     canvasDots();
 };
 
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        cancelAnimationFrame(animationIdDots);
+        cancelAnimationFrame(animationIdBg);
+        animationIdDots = null;
+        animationIdBg = null;
+        canvasDotsBg();
+        canvasDots();
+    }, 150);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const tabLinks = document.querySelectorAll('.tab-link');
-    const NAVBAR_HEIGHT = 70;
 
     const abschnitte = [];
     tabLinks.forEach(link => {

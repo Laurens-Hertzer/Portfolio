@@ -8,6 +8,7 @@
     <script src="script.js" defer></script>
     <link rel="icon" type="image/svg+xml" href="assets/logo-without-bg.png"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -39,10 +40,7 @@
 </div>
 
 <div class="hero" id="hero">
-    <div class="canvas">
-        <canvas class="connecting-dots"></canvas>
-    </div>
-
+    <canvas class="connecting-dots"></canvas>
     <div class="hero-content">
         <h1>Hallo, ich heisse Laurens</h1>
         <p class="hero-subtitle">
@@ -63,7 +61,6 @@
         <p>lorem ipsum</p>
         <h3>Meine Kenntnisse</h3>
         <div class="skills-wrapper">
-            <p class="mono text-accent"></p>
             <!-- Spot für JS zum Einfügen -->
             <div id="skills-container" class="skills-grid"></div>
         </div>
@@ -129,7 +126,7 @@
                     <h3 class="project-title">Server</h3>
                     <p class="project-description">
                         Mein persönlicher Server auf dem ich Nextcloud, Online Go, Analysetool und meine sekundäre
-                        Datensicherung betriebe.
+                        Datensicherung betreibe.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Java</span>
@@ -171,12 +168,10 @@
     <section id="contact">
         <h2>Kontakt</h2>
         Gefällt Ihnen was Sie sehen, dann melden Sie sich doch bei mir.
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <form id="contact-form">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="from_email" placeholder="Ihre E-Mail" required>
-            <textarea name="message" placeholder="Ihre Nachricht" required></textarea>
-
+            <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+            <input type="email" id="e-mail" name="from_email" placeholder="Ihre E-Mail" required>
+            <textarea id="nachricht" name="message" placeholder="Ihre Nachricht" required></textarea>
             <button type="submit" id="submit-btn">Senden</button>
         </form>
         <p id="form-status" style="display: none;"></p>
