@@ -26,6 +26,10 @@ body.light-mode {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: var(--bg);
@@ -99,6 +103,17 @@ body.light-mode .moon-icon {
     font-weight: 300;
     margin: 0;
     line-height: 1.15;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.75rem;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: var(--font-head);
 }
 
 /* Tabs */
