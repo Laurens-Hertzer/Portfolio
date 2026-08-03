@@ -8,11 +8,14 @@ const skills = [
     {
         category: "Programmiersprachen & Markup",
         badges: [
-            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
             "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
+            "https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css&logoColor=white",
             "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
-            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
             "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
+            "https://img.shields.io/badge/yaml-%23000000.svg?style=for-the-badge&logo=yaml&logoColor=white",
+            "https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white",
+            "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
+            "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
         ],
     },
     {
@@ -20,6 +23,11 @@ const skills = [
         badges: [
             "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
             "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
+            "https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white",
+            "https://img.shields.io/badge/quarto-%2375AADB.svg?style=for-the-badge&logo=quarto&logoColor=white",
+            "https://img.shields.io/badge/matplotlib-%2311557c.svg?style=for-the-badge&logo=python&logoColor=white",
+            "https://img.shields.io/badge/networkx-%23007ACC.svg?style=for-the-badge&logo=python&logoColor=white",
+            "https://img.shields.io/badge/shiny-%23blue.svg?style=for-the-badge&logo=r&logoColor=white",
         ],
     },
     {
@@ -27,16 +35,16 @@ const skills = [
         badges: [
             "https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white",
             "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
+            "https://img.shields.io/badge/postgresql-%234169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white",
         ],
     },
     {
-        category: "Tools & Hardware",
+        category: "Tools",
         badges: [
             "https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white",
             "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
-            "https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white",
-            "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
-            "https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white",
+            "https://img.shields.io/badge/draw.io-%23F08705.svg?style=for-the-badge&logo=diagramsdotnet&logoColor=white",
+            "https://img.shields.io/badge/APPUiO-%23000000.svg?style=for-the-badge&logo=kubernetes&logoColor=%23FF6600",
         ],
     },
     {
@@ -50,8 +58,8 @@ const skills = [
     {
         category: "IDEs und Codeeditoren",
         badges: [
-            "https://img.shields.io/badge/Visual_Studio_Code-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/Jetbrain_IDE-007ec6?style=for-the-badge"
+            "https://img.shields.io/badge/Visual_Studio_Code-%23007ACC.svg?style=for-the-badge&logo=vsc&logoColor=white",
+            "https://img.shields.io/badge/JetBrains-%23000000.svg?style=for-the-badge&logo=jetbrains&logoColor=white",
         ],
     },
 ];
