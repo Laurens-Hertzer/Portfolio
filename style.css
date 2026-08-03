@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
 
-/*Variablen*/
+/* Variablen */
 :root {
     --bg: #05100f;
     --card: #091a1f;
@@ -25,7 +25,7 @@ body.light-mode {
     --tag-bg: #c0d4d8;
 }
 
-/*Reset*/
+/* Reset */
 * {
     box-sizing: border-box;
 }
@@ -42,7 +42,7 @@ h1, h2, h3, h4 {
     font-family: var(--font-head);
 }
 
-/*Theme Toggle*/
+/* Theme Toggle */
 .theme-toggle {
     position: fixed;
     top: 8px;
@@ -58,12 +58,7 @@ h1, h2, h3, h4 {
     color: var(--text);
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.08);
-    border-color: var(--accent);
+    transition: background 0.3s;
 }
 
 .theme-toggle .icon {
@@ -87,51 +82,19 @@ body.light-mode .moon-icon {
     display: block;
 }
 
-/*Canvas*/
-.main-bg {
-    position: fixed;
-    inset: 0;
-    height: 100vh;
-    background: var(--bg);
-    transition: background 0.3s;
-    z-index: 0;
-}
-
-.canvas {
-    position: absolute;
-    inset: 0;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.connecting-dots,
-.canvas-2 {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-}
-
-/*Hero*/
-/*
-    min-height steht zweimal absichtlich:
-    100vh = Fallback für ältere Browser
-    100dvh = moderner Wert, der die mobile Adressleiste korrekt einrechnet
-*/
+/* Hero */
 .hero {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     min-height: 100dvh;
     padding: 0 1.5rem;
-    z-index: 1;
+    background: var(--bg);
+    transition: background 0.3s;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -141,10 +104,6 @@ body.light-mode .moon-icon {
     width: 100%;
 }
 
-/*
-    clamp(MIN, BEVORZUGT, MAX) skaliert die Schriftgrösse stufenlos:
-    auf kleinen Handys ca. 2.2rem, auf grossen Screens bis 4.8rem
-*/
 .hero-content h1 {
     font-size: clamp(2.2rem, 6vw, 4.8rem);
     font-weight: 300;
@@ -153,21 +112,7 @@ body.light-mode .moon-icon {
     word-break: break-word;
 }
 
-/*.hero-subtitle {*/
-/*    font-size: clamp(1.1rem, 2.5vw, 1.75rem);*/
-/*    font-weight: 300;*/
-/*    color: var(--muted);*/
-/*    margin: 0;*/
-/*    line-height: 1.45;*/
-/*    max-width: 650px;*/
-/*}*/
-
-/*.hero-subtitle span {*/
-/*    color: var(--accent);*/
-/*    font-weight: 400;*/
-/*}*/
-
-/*Tabs */
+/* Tabs */
 .tabs {
     position: sticky;
     top: 0;
@@ -181,7 +126,6 @@ body.light-mode .moon-icon {
     transition: background 0.3s;
 }
 
-/* Verhindert dass Abschnitte beim Anklicken hinter der Tabs-Leiste verschwinden */
 section[id] {
     scroll-margin-top: 70px;
 }
@@ -203,12 +147,12 @@ section[id] {
     transition: opacity 0.2s, border-color 0.2s;
 }
 
-.tab-link:hover, .tab-link.active {
+.tab-link:hover,
+.tab-link.active {
     opacity: 1;
     border-bottom-color: var(--accent);
 }
 
-/* Platz damit der Theme-Toggle-Button die Tabs nicht überlappt */
 @media (max-width: 600px) {
     .tabs::after {
         content: '';
@@ -217,10 +161,8 @@ section[id] {
     }
 }
 
-/*Page Content*/
+/* Page Content */
 .page-content {
-    position: relative;
-    z-index: 1;
     background: var(--bg);
     transition: background 0.3s;
     padding: 4rem 2rem;
@@ -233,34 +175,25 @@ section[id] {
     padding: 3rem 0;
 }
 
-.page-content h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    margin: 0 0 0.25rem;
-}
-
-/* Generelle Formatierung für flüssigen, lesbaren Text */
 p {
-    line-height: 1.65;          /* Gibt den Zeilen Platz zum Atmen */
+    line-height: 1.65;
     margin-top: 0;
-    margin-bottom: 1.25rem;    /* Angenehmer Abstand zum nächsten Element */
-    font-size: 1rem;            /* Normale Schriftgrösse */
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
 }
 
-/* Mehr Abstand unter Hauptüberschriften */
 .page-content h2 {
     font-size: 2rem;
     font-weight: 400;
-    margin: 0 0 1.25rem;        /* Vorher 0.25rem -> jetzt deutlich luftiger */
+    margin: 0 0 1.25rem;
 }
 
-/* Abstände für Zwischenüberschriften (wie "Meine Kenntnisse") */
 .page-content h3 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
 
-/*Skills*/
+/* Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -285,7 +218,7 @@ p {
     border-radius: 3px;
 }
 
-/*Projekte*/
+/* Projekte */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -299,13 +232,6 @@ p {
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .project-img-wrapper {
@@ -325,7 +251,6 @@ p {
     max-height: 100%;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-body {
@@ -383,12 +308,6 @@ p {
     border-radius: 5px;
     background: var(--border);
     color: var(--text);
-    transition: background 0.2s, color 0.2s;
-}
-
-.project-btn:hover {
-    background: var(--accent);
-    color: var(--bg);
 }
 
 .project-btn.primary {
@@ -396,11 +315,7 @@ p {
     color: var(--bg);
 }
 
-.project-btn.primary:hover {
-    background: var(--acc-hov);
-}
-
-/*Kontakt Form*/
+/* Kontakt Form */
 form {
     display: flex;
     flex-direction: column;
@@ -415,7 +330,6 @@ form {
     border-radius: 6px;
     font-size: 1rem;
     font-family: var(--font-body);
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 ::placeholder {
@@ -426,7 +340,6 @@ form {
 :is(input[type="text"], input[type="email"], textarea):focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(74, 159, 173, 0.25);
 }
 
 form textarea {
@@ -443,30 +356,18 @@ form button[type="submit"] {
     font-family: var(--font-head);
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-form button[type="submit"]:hover {
-    background-color: var(--acc-hov);
-}
-
-/*Footer*/
+/* Footer */
 footer {
-    position: relative;
-    z-index: 2;
     text-align: center;
     padding: 20px;
     background: var(--card);
     color: var(--text);
 }
 
-footer a, footer a:visited {
+footer a,
+footer a:visited {
     color: var(--text);
     text-decoration: none;
-    transition: color 0.2s;
-}
-
-/*Damit die Links nicht violet sind*/
-footer a:hover {
-    color: var(--accent);
 }
