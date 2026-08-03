@@ -51,9 +51,7 @@ const skills = [
         category: "IDEs und Codeeditoren",
         badges: [
             "https://img.shields.io/badge/Visual_Studio_Code-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/Intellij-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/WebStorm-007ec6?style=for-the-badge",
-            "https://img.shields.io/badge/RustRover-007ec6?style=for-the-badge",
+            "https://img.shields.io/badge/Jetbrain_IDE-007ec6?style=for-the-badge"
         ],
     },
 ];
