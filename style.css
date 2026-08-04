@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+/*Variablen*/
 :root {
     --bg: #05100f;
     --card: #091a1f;
@@ -22,6 +25,9 @@ body.light-mode {
     --tag-bg: #c0d4d8;
 }
 
+/*Standart Verhalten*/
+
+/*Width usw. wird nicht mehr kaputgemacht durch padding und änliches*/
 * {
     box-sizing: border-box;
 }
@@ -106,6 +112,10 @@ body.light-mode .moon-icon {
     text-decoration: none;
     border-radius: 6px;
     font-family: var(--font-head);
+}
+
+.hero-btn:hover {
+    background: var(--acc-hov);
 }
 
 /* Nav */
@@ -233,17 +243,19 @@ main h3 {
     gap: 0.5rem;
 }
 
+.project-title, .project-description {
+    margin: 0;
+}
+
 .project-title {
     font-size: 1.1rem;
     font-weight: 600;
-    margin: 0;
 }
 
 .project-description {
     font-size: 0.88rem;
     color: var(--muted);
     flex-grow: 1;
-    margin: 0;
 }
 
 .project-tags {
@@ -268,7 +280,6 @@ main h3 {
 }
 
 .project-btn {
-    display: inline-block;
     padding: 0.4rem 0.9rem;
     font-size: 0.82rem;
     text-decoration: none;
@@ -278,12 +289,7 @@ main h3 {
     transition: background 0.2s, color 0.2s;
 }
 
-.project-btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-}
-
-.project-btn.primary {
+.project-btn:hover, .project-btn.primary {
     background: var(--accent);
     color: var(--bg);
 }
@@ -314,7 +320,6 @@ input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(74, 159, 173, 0.25);
 }
 
 ::placeholder {
@@ -335,6 +340,10 @@ form button {
     font-family: var(--font-head);
     font-weight: bold;
     cursor: pointer;
+}
+
+form button:hover {
+    background: var(--acc-hov);
 }
 
 /* Footer */
