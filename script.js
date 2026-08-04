@@ -169,3 +169,23 @@ contactForm.addEventListener('submit', function (event) {
             submitBtn.innerText = "Senden";
         });
 });
+
+// Umami tracking
+document.addEventListener('DOMContentLoaded', () => {
+
+    // GitHub + Live Demo Buttons
+    document.querySelectorAll('.project-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const projectTitle = btn.closest('.project-card')
+                .querySelector('.project-title').textContent;
+            const type = btn.classList.contains('primary') ? 'live-demo' : 'github-link';
+            umami.track(type, { project: projectTitle });
+        });
+    });
+
+    // Kontaktformular
+    document.getElementById('contact-form').addEventListener('submit', () => {
+        umami.track('contact-form-submit');
+    });
+
+});
