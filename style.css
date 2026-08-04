@@ -1,65 +1,359 @@
-/* Part Light/Dark Mode CSS */
-/* Standard (dunkel) */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+/*Variablen*/
 :root {
-    --bg: #09090f;
-    --text: #ffffff;
+    --bg: #05100f;
+    --card: #091a1f;
+    --border: #0e2a31;
+    --text: #e8f4f6;
+    --muted: rgba(232, 244, 246, 0.42);
+    --accent: #4a9fad;
+    --acc-hov: #3a8a97;
+    --tag-bg: #071318;
+    --font-head: 'Syne', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
 }
 
-/* Heller Modus (body wird gewechselt) */
 body.light-mode {
-    --bg: #f4f6f8;
-    --text: #0d1117;
+    --bg: #e4ecee;
+    --card: #d2dfe2;
+    --border: #a8c0c5;
+    --text: #0a1e22;
+    --muted: rgba(10, 30, 34, 0.45);
+    --accent: #12363f;
+    --acc-hov: #0a2830;
+    --tag-bg: #c0d4d8;
 }
 
-/* Globales Reset wegen Voreinstellungen Browser */
+/*Standart Verhalten*/
+
+/*Width usw. wird nicht mehr kaputgemacht durch padding und änliches*/
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-/* Global Body und wie er sich anpasst */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: var(--bg);
+    margin: 0;
+    background: var(--bg);
     color: var(--text);
-    font-family: sans-serif;
+    font-family: var(--font-body);
+    transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-head);
+}
+
+p {
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+}
+
+/* Theme Toggle */
+#theme-toggle {
+    position: fixed;
+    top: 8px;
+    right: 1.5rem;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.moon-icon {
+    display: none;
+}
+
+body.light-mode .sun-icon {
+    display: none;
+}
+
+body.light-mode .moon-icon {
+    display: block;
+}
+
+/* Hero */
+#hero {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden; /* keine Scrollbalken durch das Canvas */
-    /* transition für keine schlagartige Farbenänderung */
-    transition: background-color 0.3s, color 0.3s; 
-}
-
-/* Part Canvas (von codepen, nicht meiner) */
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /* Der Hintergrund ist hier transparent, damit die body-Farbe durchscheint */
-}
-
-/* Content Container für sauberes Layout */
-.content {
+    min-height: 100dvh;
     text-align: center;
-    z-index: 1; /* Damit der Text über dem Canvas liegt */
 }
 
-h1 {
-    letter-spacing: 2px;
-    text-shadow: 1px 1px rgba(0,0,0,0.3);
-    margin-bottom: 20px;
+#hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4.8rem);
+    font-weight: 300;
+    margin: 0;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--text);
+.hero-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.75rem;
+    background: var(--accent);
     color: var(--bg);
-    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: var(--font-head);
+}
+
+.hero-btn:hover {
+    background: var(--acc-hov);
+}
+
+/* Nav */
+#tabs {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    height: 56px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+}
+
+section {
+    scroll-margin-top: 70px;
+}
+
+#tabs a {
+    display: inline-flex;
+    align-items: center;
+    height: 56px;
+    padding: 0 1.5rem;
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+    border-bottom: 2px solid transparent;
+    transition: opacity 0.2s, border-color 0.2s;
+}
+
+#tabs a:hover,
+#tabs a.active {
+    opacity: 1;
+    border-bottom-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    #tabs::before,
+    #tabs::after {
+        content: '';
+        width: 52px;
+        flex-shrink: 0;
+    }
+}
+
+/* Main */
+main {
+    padding: 4rem 2rem;
+}
+
+main > section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+main h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 1.25rem;
+}
+
+main h3 {
+    margin: 2.5rem 0 1rem;
+}
+
+/* Skills */
+#skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    padding: 1.25rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+#skills-container img {
+    height: 24px;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-img-wrapper {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.project-body {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.project-title, .project-description {
+    margin: 0;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.project-description {
+    font-size: 0.88rem;
+    color: var(--muted);
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.project-tag {
+    font-size: 0.72rem;
+    font-family: ui-monospace, monospace;
+    padding: 2px 8px;
+    color: var(--accent);
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.project-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    text-decoration: none;
+    border-radius: 5px;
+    background: var(--border);
+    color: var(--text);
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-btn:hover, .project-btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.project-btn.primary:hover {
+    background: var(--acc-hov);
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+textarea {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+::placeholder {
+    color: var(--muted);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form button {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-family: var(--font-head);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: var(--acc-hov);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--card);
+}
+
+footer a {
+    color: var(--text);
+    text-decoration: none;
 }

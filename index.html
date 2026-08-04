@@ -6,12 +6,185 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-without-bg.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script defer src="https://analytics.lahdev.ch/script.js" data-website-id="a224710c-1f8f-4dd0-8ae8-8cfda71a592b"></script>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div class="content">
-        <h1>Sasha</h1>
-        <button id="theme-toggle">Design wechseln</button>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Theme wechseln">
+    <!-- Sonne Icon -->
+    <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <!-- Mond Icon -->
+    <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+</button>
+
+<div class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Hallo, ich bin Laurens</h1>
+        <h3>und ich mag die Informatik, lassen Sie mir Ihnen zeigen, was ich drauf habe.</h3>
+        <a href="#about" class="hero-btn">Mehr über mich</a>
     </div>
+</div>
+
+<nav class="tabs" id="tabs">
+    <a href="#about" class="tab-link active">Über mich</a>
+    <a href="#projects" class="tab-link">Projekte</a>
+    <a href="#contact" class="tab-link">Kontakt</a>
+</nav>
+
+<main class="page-content">
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>Hallo, mein Name ist Laurens, ich bin 17 Jahre alt, lebe in der Nähe von Zürich und bin in der Schweiz
+            aufgewachsen. Nach erfolgreich abgeschlossener Sekundarschule gehe ich jetzt in die IMS
+            an der Kantonsschule Büelrain (KBW) und der Berufsbildungsschule Winterthur (BBW).
+            Die IMS schliesse ich mit einem Applikationsentwickler EFZ und einer Berufsmaturität Wirtschaft und Recht
+            ab. Im Moment suche ich nach einer Praktikumsstelle, um meine Ausbildung abzuschliessen.
+            Meine Hobbys sind Schach, Ski und neuerdings die Informatik.</p>
+        <h3>Meine Kenntnisse und womit ich schon gearbeitet habe</h3>
+        <div class="skills-wrapper">
+            <div id="skills-container" class="skills-grid"></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projekte</h2>
+        <p>Dies sind meine Informatikprojekte, die ich Ihnen vorstellen möchte.</p>
+        <div class="projects-grid">
+
+            <!-- System_Overview -->
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="assets/system_overview.png" alt="Projekt Vorschau"/>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">System Overview</h3>
+                    <p class="project-description">
+                        Ein Terminaltool dafür entwickelt, um sich das System von sich selber durch das Terminal
+                        überwachen und anpassen zu können. Es ist eher für den Gebrauch an Servern gedacht, aber auch
+                        persönlichen Geräten die für das Development benutzt werden.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Rust</span>
+                        <span class="project-tag">Ratatui</span>
+                        <span class="project-tag">SysInfo</span>
+                        <span class="project-tag">Crossterm</span>
+                        <span class="project-tag">Clap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Laurens-Hertzer/System_Overview" target="_blank"
+                           class="project-btn">GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Online_Go -->
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="assets/online_go.png" alt="Projekt Vorschau"/>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">Online Go</h3>
+                    <p class="project-description">
+                        Dies ist meine Website, die mithilfe von Websockets das Spielen von Go mit anderen Leuten ermöglicht.
+                        Mit Konten und Lobby/Matches.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Javascript</span>
+                        <span class="project-tag">Express</span>
+                        <span class="project-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Laurens-Hertzer/Online_Go" target="_blank" class="project-btn">GitHub</a>
+                        <a href="https://go.lahdev.ch" target="_blank" class="project-btn primary">Live Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Server -->
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="assets/server.webp" alt="Projekt Vorschau"/>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">Server</h3>
+                    <p class="project-description">
+                        Mein persönlicher Server auf dem ich Nextcloud, Online Go, mein Website Analysetool und meine
+                        Datensicherung betreibe.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Yaml</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">MariaDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Laurens-Hertzer/Server" target="_blank"
+                           class="project-btn">GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Portfolio Website -->
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="assets/portfolio.png" alt="Projekt Vorschau"/>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        Meine Portfolio Website, auf der ich mich und meine Projekte präsentiere.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Javascript</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">EmailJS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Laurens-Hertzer/Portfolio" target="_blank" class="project-btn">GitHub</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Gefällt Ihnen, was Sie sehen? Ich würde mich auf eine Nachricht von Ihnen freuen.</p>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+            <input type="email" id="e-mail" name="from_email" placeholder="Ihre E-Mail" required>
+            <textarea id="nachricht" name="message" placeholder="Ihre Nachricht" required></textarea>
+            <button type="submit" id="submit-btn">Senden</button>
+        </form>
+        <p id="form-status" style="display: none;"></p>
+    </section>
+</main>
+
+<footer>
+    <p>Laurens A. Hertzer</p>
+    <p><a href="mailto:lahdev.ch@gmail.com">lahdev.ch@gmail.com</a></p>
+    <a href="https://github.com/laurens-hertzer" target="_blank" rel="noopener noreferrer"
+       class="text-secondary">
+        <i class="bi bi-github fs-5"></i>
+    </a>
+</footer>
+
 </body>
 </html>
