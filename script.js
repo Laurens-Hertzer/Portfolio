@@ -13,6 +13,7 @@ const skills = [
             "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
             "https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white",
             "https://img.shields.io/badge/yaml-%23000000.svg?style=for-the-badge&logo=yaml&logoColor=white",
+            "https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54",
             "https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white",
             "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
             "https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white",
@@ -23,6 +24,7 @@ const skills = [
         badges: [
             "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
             "https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white",
+            "https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white",
             "https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white",
             "https://img.shields.io/badge/quarto-%2375AADB.svg?style=for-the-badge&logo=quarto&logoColor=white",
             "https://img.shields.io/badge/matplotlib-%2311557c.svg?style=for-the-badge&logo=python&logoColor=white",
@@ -48,18 +50,18 @@ const skills = [
         ],
     },
     {
+        category: "IDEs und Codeeditoren",
+        badges: [
+            "https://img.shields.io/badge/Visual_Studio_Code-%23007ACC.svg?style=for-the-badge&logo=vsc&logoColor=white",
+            "https://img.shields.io/badge/JetBrains-%23000000.svg?style=for-the-badge&logo=jetbrains&logoColor=white",
+        ],
+    },
+    {
         category: "Sprachen",
         badges: [
             "https://img.shields.io/badge/Deutsch-Muttersprache-4c1?style=for-the-badge",
             "https://img.shields.io/badge/Englisch-Fließend_(C2)-007ec6?style=for-the-badge",
             "https://img.shields.io/badge/Französisch-Zertifikat_(B1)-007ec6?style=for-the-badge",
-        ],
-    },
-    {
-        category: "IDEs und Codeeditoren",
-        badges: [
-            "https://img.shields.io/badge/Visual_Studio_Code-%23007ACC.svg?style=for-the-badge&logo=vsc&logoColor=white",
-            "https://img.shields.io/badge/JetBrains-%23000000.svg?style=for-the-badge&logo=jetbrains&logoColor=white",
         ],
     },
 ];
