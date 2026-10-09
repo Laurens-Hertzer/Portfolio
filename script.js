@@ -152,7 +152,7 @@ contactForm.addEventListener('submit', function (event) {
     submitBtn.disabled = true;
     submitBtn.innerText = "Wird gesendet...";
 
-    emailjs.sendForm('service_7ms6voc', 'template_gid7bum', this)
+    emailjs.sendForm('service_t7knnvc', 'template_gid7bum', this)
         .then(function () {
             statusText.style.display = "block";
             statusText.style.color = "green";
