@@ -196,7 +196,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btn = document.getElementById('live-demo-btn');
     const hinweis = document.getElementById('status-hinweis');
 
-    // 10 Second fuse
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
