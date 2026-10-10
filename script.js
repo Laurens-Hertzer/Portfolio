@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
-        const response = await fetch('https://go.lahdev.ch', {
+        const response = await fetch('https://go.lahdev.ch/status', {
             method: 'GET',
             mode: 'cors',
             signal: controller.signal
