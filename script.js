@@ -191,3 +191,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const btn = document.getElementById('live-demo-btn');
+    const hinweis = document.getElementById('status-hinweis');
+
+    // 10 Second fuse
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    try {
+        const response = await fetch('https://go.lahdev.ch', {
+            method: 'GET',
+            mode: 'cors',
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+            hinweis.textContent = '';
+        } else {
+            throw new Error('Server meldet Fehler');
+        }
+
+    } catch (error) {
+        console.warn('App nicht erreichbar oder Timeout:', error);
+
+        btn.classList.add('offline');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Die Applikation (go.lahdev.ch) ist aktuell leider nicht verfügbar.');
+        });
+
+        hinweis.textContent = '⚠️ Applikation aktuell nicht verfügbar (Offline)';
+        hinweis.style.color = '#d9534f';
+    }
+});

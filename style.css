@@ -298,6 +298,18 @@ main h3 {
     background: var(--acc-hov);
 }
 
+.project-btn.offline {
+    background-color: #6c757d !important;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#status-hinweis {
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
 /* Form */
 form {
     display: flex;
