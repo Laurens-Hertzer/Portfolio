@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         clearTimeout(timeoutId);
 
         if (response.ok) {
-            hinweis.textContent = '';
+            hinweis.textContent = 'Applikation Online';
         } else {
             throw new Error('Server meldet Fehler');
         }
@@ -220,10 +220,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Die Applikation (go.lahdev.ch) ist aktuell leider nicht verfügbar.');
+            alert('Die Applikation ist aktuell leider nicht verfügbar. Bitte versuchen Sie es später nochmal.');
         });
 
-        hinweis.textContent = '⚠️ Applikation aktuell nicht verfügbar (Offline)';
+        hinweis.textContent = 'Applikation aktuell leider nicht verfügbar';
         hinweis.style.color = '#d9534f';
     }
 });
